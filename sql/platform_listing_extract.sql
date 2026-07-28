@@ -11,7 +11,7 @@ SELECT
     p.Bed, p.Person, p.StandardPerson, p.Child, p.Infant,
     p.Latitude, p.Longitude, p.CheckInTime, p.CheckInToTime, p.CheckOutTime,
     p.Currency, p.Space, p.SpaceUnit, p.TaxNumber, p.Physicaladdress,
-    p.DisplayAddress, p.PartofID, p.ParentID, p.MultiUnit, p.ProductGroup,
+    p.DisplayAddress, p.PartofID, p.ParentID, p.linked_id, p.MultiUnit, p.ProductGroup,
     p.version AS sourceVersion,
     l.Name AS city, l.GName AS alternateCityName,
     l.AdminArea_lvl_1 AS region, l.Country, l.ZipCode, l.TimeZoneID
@@ -73,7 +73,7 @@ LEFT JOIN (
         GROUP_CONCAT(DISTINCT Name ORDER BY Name SEPARATOR ' | ') AS Names
     FROM attribute_mapping
     WHERE Type = 2
-      AND ignore = 0
+      AND `ignore` = 0
     GROUP BY Code, Type
 ) am
     ON pa.attribute_id LIKE 'PCT%'
@@ -82,3 +82,23 @@ LEFT JOIN attribute a
     ON pa.attribute_id = CONCAT(a.List, a.ID)
 WHERE pa.product_id = @product_id
 ORDER BY pa.attribute_id;
+
+-- 5. Candidate child units for a multi-representation parent
+-- Run the four validation queries above again for each returned child ID.
+SELECT
+    child.ID, child.AltID, child.Name, child.DisplayName,
+    child.State, child.BpValidation,
+    child.PartofID, child.ParentID, child.linked_id,
+    child.MultiUnit, child.ProductGroup,
+    child.Room, child.Bathroom, child.Bed, child.Person,
+    child.version AS sourceVersion,
+    CASE
+        WHEN child.ParentID = @product_id THEN 'ParentID'
+        WHEN child.PartofID = @product_id THEN 'PartofID'
+        WHEN child.linked_id = @product_id THEN 'linked_id'
+    END AS relationshipSource
+FROM product child
+WHERE child.ParentID = @product_id
+   OR child.PartofID = @product_id
+   OR child.linked_id = @product_id
+ORDER BY child.ID;

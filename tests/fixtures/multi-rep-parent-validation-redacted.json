@@ -1,0 +1,53 @@
+{
+  "fixtureVersion": 1,
+  "source": {
+    "environment": "live-read-only-redacted",
+    "productId": "redacted-multi-parent-001",
+    "multiUnit": "OWN",
+    "productGroup": "MULTI_REP",
+    "productState": "Created",
+    "sourceVersion": "redacted"
+  },
+  "listing": {
+    "bookingNameSource": "Name",
+    "rooms": 0,
+    "bathrooms": 0,
+    "reportedBeds": 0,
+    "maximumGuests": 4,
+    "propertyTypeCode": "PCT20",
+    "propertyTypeName": "Hotel",
+    "finalNamePresent": true,
+    "finalDescriptionPresent": false,
+    "createdDescriptionPresent": true,
+    "houseRulesPresent": false
+  },
+  "bedroomConfiguration": {
+    "rows": 0,
+    "expectedAtParent": true,
+    "childValidationRequired": true
+  },
+  "attributes": {
+    "propertyTypeFanoutCollapsed": true,
+    "unresolvedCount": 7,
+    "unresolvedCodes": "redacted"
+  },
+  "location": {
+    "cityAndCoordinatesAgree": true,
+    "postalCodesAgree": false,
+    "severity": "review"
+  },
+  "validation": [
+    { "rule": "multi-rep-parent-counts", "status": "pass" },
+    { "rule": "property-type-resolution", "status": "pass" },
+    { "rule": "product-lifecycle", "status": "block", "message": "Resolve before sync" },
+    { "rule": "final-description", "status": "block", "message": "Resolve before sync" },
+    { "rule": "postal-consistency", "status": "review" },
+    { "rule": "child-unit-validation", "status": "pending" }
+  ],
+  "summary": {
+    "passes": 2,
+    "blockers": 2,
+    "reviews": 1,
+    "pending": 1
+  }
+}

@@ -3,7 +3,8 @@
 ## P0 - Correct the data source
 
 - [x] Validate the platform extraction SQL against one SGL product.
-- [ ] Validate the corrected platform extraction SQL against one MLT parent and one child product.
+- [x] Validate the corrected platform extraction SQL against one MULTI_REP parent.
+- [ ] Validate the corrected platform extraction SQL against at least one linked child product.
 - [ ] Replace the Supplier API input contract with a typed platform-listing DTO.
 - [ ] Build a read-only VPN-local sync runner or internal sync service.
 - [ ] Add scoped service authentication for Mapwise ingestion.

@@ -46,6 +46,8 @@ test("limits property type mappings and retains unresolved attributes", async ()
   const sql = await read("sql/platform_listing_extract.sql");
   assert.match(sql, /pa\.attribute_id LIKE 'PCT%'/);
   assert.match(sql, /GROUP_CONCAT\(DISTINCT Name/);
+  assert.match(sql, /AND `ignore` = 0/);
+  assert.doesNotMatch(sql, /AND ignore = 0/);
   assert.match(sql, /LEFT JOIN attribute a/);
 });
 
@@ -55,6 +57,30 @@ test("keeps the SGL validation fixture redacted", async () => {
   assert.equal(fixture.source.structure, "SGL");
   assert.equal(fixture.source.productState, "Created");
   assert.equal(fixture.summary.blockers, 3);
+  assert.doesNotMatch(
+    serialized,
+    /Physicaladdress|TaxNumber|latitude|longitude|SupplierID/i,
+  );
+});
+
+test("discovers candidate child units through every known relationship", async () => {
+  const sql = await read("sql/platform_listing_extract.sql");
+  assert.match(sql, /child\.ParentID = @product_id/);
+  assert.match(sql, /child\.PartofID = @product_id/);
+  assert.match(sql, /child\.linked_id = @product_id/);
+  assert.match(sql, /AS relationshipSource/);
+});
+
+test("keeps the MULTI_REP parent validation fixture redacted", async () => {
+  const fixture = JSON.parse(
+    await read("tests/fixtures/multi-rep-parent-validation-redacted.json"),
+  );
+  const serialized = JSON.stringify(fixture);
+  assert.equal(fixture.source.multiUnit, "OWN");
+  assert.equal(fixture.source.productGroup, "MULTI_REP");
+  assert.equal(fixture.bedroomConfiguration.expectedAtParent, true);
+  assert.equal(fixture.bedroomConfiguration.childValidationRequired, true);
+  assert.equal(fixture.location.severity, "review");
   assert.doesNotMatch(
     serialized,
     /Physicaladdress|TaxNumber|latitude|longitude|SupplierID/i,

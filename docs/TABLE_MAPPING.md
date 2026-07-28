@@ -26,7 +26,7 @@
 | Space | `product.Space`, `product.SpaceUnit` |
 | Tax number | `product.TaxNumber` |
 | Street | `product.Physicaladdress` |
-| Parent/unit structure | `product.PartofID`, `product.ParentID`, `product.MultiUnit`, `product.ProductGroup` |
+| Parent/unit structure | `product.PartofID`, `product.ParentID`, `product.linked_id`, `product.MultiUnit`, `product.ProductGroup` |
 | Source version | `product.version` |
 
 ## Text

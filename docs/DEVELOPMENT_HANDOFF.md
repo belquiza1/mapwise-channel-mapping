@@ -23,9 +23,9 @@ Retain the normalization, mapping-row generation, D1 persistence, authorization,
 
 ## First development milestone
 
-The corrected extract has been validated against one SGL product. The next validation run is one MLT parent and one child product.
+The corrected extract has been validated against one SGL product and one `OWN` / `MULTI_REP` parent. The next validation run is at least one child returned by the parent-discovery query.
 
-1. Run `sql/platform_listing_extract.sql` for an MLT parent and child.
+1. Run query 5 for the validated parent, then run queries 1-4 for at least one returned child.
 2. Confirm `PartofID`, `ParentID`, `MultiUnit`, and inherited content behavior.
 3. Confirm how `product_attribute.attribute_id` joins to `attribute` for every attribute group.
 4. Build a typed platform-listing DTO.
