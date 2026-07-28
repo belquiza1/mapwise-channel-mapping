@@ -33,3 +33,30 @@ test("does not bind the handoff repository to production hosting", async () => {
   assert.equal(hosting.project_id, null);
   assert.equal(hosting.d1, "DB");
 });
+
+test("preserves Created text evidence without marking it Final", async () => {
+  const sql = await read("sql/platform_listing_extract.sql");
+  assert.match(sql, /pt\.State IN \(2, 3\)/);
+  assert.match(sql, /AS isFinal/);
+  assert.match(sql, /preferred\.State > pt\.State/);
+  assert.match(sql, /SET @product_id = 0;/);
+});
+
+test("limits property type mappings and retains unresolved attributes", async () => {
+  const sql = await read("sql/platform_listing_extract.sql");
+  assert.match(sql, /pa\.attribute_id LIKE 'PCT%'/);
+  assert.match(sql, /GROUP_CONCAT\(DISTINCT Name/);
+  assert.match(sql, /LEFT JOIN attribute a/);
+});
+
+test("keeps the SGL validation fixture redacted", async () => {
+  const fixture = JSON.parse(await read("tests/fixtures/sgl-validation-redacted.json"));
+  const serialized = JSON.stringify(fixture);
+  assert.equal(fixture.source.structure, "SGL");
+  assert.equal(fixture.source.productState, "Created");
+  assert.equal(fixture.summary.blockers, 3);
+  assert.doesNotMatch(
+    serialized,
+    /Physicaladdress|TaxNumber|latitude|longitude|SupplierID/i,
+  );
+});

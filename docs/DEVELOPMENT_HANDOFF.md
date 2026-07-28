@@ -23,14 +23,18 @@ Retain the normalization, mapping-row generation, D1 persistence, authorization,
 
 ## First development milestone
 
-1. Validate `sql/platform_listing_extract.sql` against one known product.
-2. Confirm how `product_attribute.attribute_id` joins to `attribute` for every attribute group.
-3. Build a typed platform-listing DTO.
-4. Implement a VPN-local sync runner or internal sync service.
-5. Add a scoped ingestion endpoint to Mapwise.
-6. Replace `Import supplier JSON` with `Sync platform listings`.
-7. Show source version and last-sync timestamp.
-8. Test SGL and MLT parent/child products.
+The corrected extract has been validated against one SGL product. The next validation run is one MLT parent and one child product.
+
+1. Run `sql/platform_listing_extract.sql` for an MLT parent and child.
+2. Confirm `PartofID`, `ParentID`, `MultiUnit`, and inherited content behavior.
+3. Confirm how `product_attribute.attribute_id` joins to `attribute` for every attribute group.
+4. Build a typed platform-listing DTO.
+5. Implement a VPN-local sync runner or internal sync service.
+6. Add a scoped ingestion endpoint to Mapwise.
+7. Replace `Import supplier JSON` with `Sync platform listings`.
+8. Show source version and last-sync timestamp.
+
+See `docs/VALIDATION_RULES.md` and the redacted SGL fixture under `tests/fixtures`.
 
 ## Operational rules
 

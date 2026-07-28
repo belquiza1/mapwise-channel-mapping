@@ -2,13 +2,16 @@
 
 ## P0 - Correct the data source
 
-- [ ] Validate the platform extraction SQL against one SGL and one MLT product.
+- [x] Validate the platform extraction SQL against one SGL product.
+- [ ] Validate the corrected platform extraction SQL against one MLT parent and one child product.
 - [ ] Replace the Supplier API input contract with a typed platform-listing DTO.
 - [ ] Build a read-only VPN-local sync runner or internal sync service.
 - [ ] Add scoped service authentication for Mapwise ingestion.
 - [ ] Replace `Import supplier JSON` with `Sync platform listings`.
 - [ ] Preserve source `product.ID`, `product.version`, and last-sync timestamp.
 - [ ] Prevent restricted fields from appearing in client-facing evidence or logs.
+- [ ] Treat Created text as visible evidence but require Final text for channel readiness.
+- [ ] Detect disagreement between physical address, location record, and coordinates.
 
 ## P0 - Mapping integrity
 
@@ -18,6 +21,7 @@
 - [ ] Resolve occupancy semantics for `Person`, `StandardPerson`, `Child`, and `Infant`.
 - [ ] Resolve SGL/MLT parent inheritance and unit structure.
 - [ ] Parse attribute `options` JSON by attribute group.
+- [ ] Classify unresolved attribute codes without dropping them from review.
 
 ## P1 - Workflow
 

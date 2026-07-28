@@ -1,0 +1,45 @@
+{
+  "fixtureVersion": 1,
+  "source": {
+    "environment": "live-read-only-redacted",
+    "productId": "redacted-sgl-001",
+    "structure": "SGL",
+    "productState": "Created",
+    "sourceVersion": "redacted"
+  },
+  "listing": {
+    "useDisplayName": true,
+    "rooms": 4,
+    "bathrooms": 3.5,
+    "reportedBeds": 6,
+    "maximumGuests": 12,
+    "propertyTypeCode": "PCT34",
+    "propertyTypeName": "Vacation home",
+    "finalEnglishTextPresent": false,
+    "createdEnglishTextPresent": true
+  },
+  "bedroomConfiguration": {
+    "bedrooms": 4,
+    "bedCount": 6,
+    "guestCapacity": 12,
+    "matchesProductHeader": true
+  },
+  "attributes": {
+    "resolvedBroadly": true,
+    "unresolvedCount": 15,
+    "unresolvedCodes": "redacted"
+  },
+  "validation": [
+    { "rule": "bedroom-consistency", "status": "pass" },
+    { "rule": "property-type-resolution", "status": "pass" },
+    { "rule": "product-lifecycle", "status": "block", "message": "Resolve before sync" },
+    { "rule": "final-english-text", "status": "block", "message": "Resolve before sync" },
+    { "rule": "location-consistency", "status": "block", "message": "Resolve before sync" },
+    { "rule": "unresolved-attributes", "status": "review" }
+  ],
+  "summary": {
+    "passes": 2,
+    "blockers": 3,
+    "reviews": 1
+  }
+}

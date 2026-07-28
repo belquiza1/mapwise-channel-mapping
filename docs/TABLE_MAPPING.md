@@ -31,7 +31,7 @@
 
 ## Text
 
-Join `product_text.ProductID = product.ID`. Use final English content with `Language = 'en'`, `State = 3`, and `Type IN ('Name', 'Description', 'ShortDescription', 'HouseRules')`. The value is `product_text.Value`.
+Join `product_text.ProductID = product.ID`. Prefer final English content with `Language = 'en'`, `State = 3`, and `Type IN ('Name', 'Description', 'ShortDescription', 'HouseRules')`. If no Final row exists for a text type, the latest Created row (`State = 2`) may be shown as source evidence, but it must retain `isFinal = false` and produce a `Resolve before sync` blocker. The value is `product_text.Value`.
 
 ## Bedrooms and beds
 
@@ -51,7 +51,7 @@ product_attribute.attribute_id = attribute_mapping.Code
 attribute_mapping.Type = 2
 ```
 
-PCT codes represent property/structure type. `attribute_mapping.Name` provides the human-readable label.
+PCT codes represent property/structure type. Only join `attribute_mapping` for `PCT%` codes; otherwise amenity codes can match product-type synonyms. Aggregate distinct mapping names by code to avoid fan-out.
 
 ## Policies and amenities
 
@@ -61,7 +61,7 @@ PCT codes represent property/structure type. `attribute_mapping.Name` provides t
 product_attribute.attribute_id = CONCAT(attribute.List, attribute.ID)
 ```
 
-`attribute.List` is the three-letter group. `product_attribute.options` contains JSON options such as charge, location, or reservation requirements. Validate this join using production sample rows before treating it as universal.
+`attribute.List` is the three-letter group. `product_attribute.options` contains JSON options such as charge, location, or reservation requirements. Keep the join to `attribute` as a `LEFT JOIN`: unresolved codes must remain visible in the mapping-review queue instead of being dropped.
 
 ## Location
 

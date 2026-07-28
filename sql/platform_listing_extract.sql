@@ -1,6 +1,8 @@
 -- Read-only validation extract for one BookingPal product.
 -- Set this to a product.ID available in the target environment.
-SET @product_id = 1335577872;
+-- If the SQL client does not persist variables between statements, inline the
+-- same product ID in place of @product_id in each query.
+SET @product_id = 0;
 
 -- 1. Core product and location
 SELECT
@@ -17,14 +19,34 @@ FROM product p
 LEFT JOIN location l ON l.ID = p.LocationID
 WHERE p.ID = @product_id;
 
--- 2. Final English listing text
-SELECT Type, Value, Version
-FROM product_text
-WHERE ProductID = @product_id
-  AND Language = 'en'
-  AND State = 3
-  AND Type IN ('Name', 'Description', 'ShortDescription', 'HouseRules')
-ORDER BY Type;
+-- 2. Preferred English listing text
+-- Return the latest Final row when it exists; otherwise return the latest
+-- Created row as evidence. isFinal must remain false for the fallback row so
+-- Mapwise can show the text without treating it as channel-ready.
+SELECT
+    pt.Type, pt.Value, pt.Version, pt.State AS textState,
+    CASE WHEN pt.State = 3 THEN 1 ELSE 0 END AS isFinal
+FROM product_text pt
+WHERE pt.ProductID = @product_id
+  AND pt.Language = 'en'
+  AND pt.State IN (2, 3)
+  AND pt.Type IN ('Name', 'Description', 'ShortDescription', 'HouseRules')
+  AND NOT EXISTS (
+      SELECT 1
+      FROM product_text preferred
+      WHERE preferred.ProductID = pt.ProductID
+        AND preferred.Language = pt.Language
+        AND preferred.Type = pt.Type
+        AND preferred.State IN (2, 3)
+        AND (
+            preferred.State > pt.State
+            OR (
+                preferred.State = pt.State
+                AND preferred.Version > pt.Version
+            )
+        )
+  )
+ORDER BY pt.Type, pt.State DESC, pt.Version DESC;
 
 -- 3. Bedroom and bed configuration
 SELECT
@@ -40,14 +62,22 @@ ORDER BY pb.ID, pbb.ID;
 -- 4. Property type, amenities, and policies
 SELECT
     pa.attribute_id, pa.Quantity, pa.options,
-    am.Name AS mappedTypeName, am.Type AS mappingType,
+    am.Names AS mappedTypeNames, am.Type AS mappingType,
     a.List AS attributeGroup, a.ID AS attributeItem,
     a.Name AS attributeName, a.Definition
 FROM product_attribute pa
-LEFT JOIN attribute_mapping am
-    ON am.Code = pa.attribute_id
-   AND am.Type = 2
-   AND am.ignore = 0
+LEFT JOIN (
+    SELECT
+        Code,
+        Type,
+        GROUP_CONCAT(DISTINCT Name ORDER BY Name SEPARATOR ' | ') AS Names
+    FROM attribute_mapping
+    WHERE Type = 2
+      AND ignore = 0
+    GROUP BY Code, Type
+) am
+    ON pa.attribute_id LIKE 'PCT%'
+   AND am.Code = pa.attribute_id
 LEFT JOIN attribute a
     ON pa.attribute_id = CONCAT(a.List, a.ID)
 WHERE pa.product_id = @product_id
