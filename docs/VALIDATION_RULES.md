@@ -6,7 +6,7 @@ These rules were refined using a redacted SGL validation run against the live re
 
 Use the status copy `Resolve before sync`.
 
-1. **Product lifecycle:** Block when `product.State` is not Final.
+1. **Product lifecycle:** Only `product.State = 'Created'` listings are eligible for mapping review — `Created` is the live/active state (verified against booking activity; see [Listing state](LISTING_STATE.md)). Exclude `Final` (retired/archived), `Suspended` (paused), and `Initial` (abandoned). `Incomplete` is an active onboarding pipeline that may be enabled for pre-launch mapping but is out of pilot scope. Do **not** confuse `product.State = 'Final'` (retired) with `product_text.State = 3` ("Final" = finalized text, which is good).
 2. **English listing text:** Prefer Final (`State = 3`) text. If only Created (`State = 2`) text exists, display it as evidence with `isFinal = false` and block readiness.
 3. **Location consistency:** Block when city/region and coordinates disagree materially. A postal-code-only disagreement when city and coordinates agree is a review item, not an automatic blocker. Restricted address and coordinate values must not appear in client-facing evidence or logs.
 

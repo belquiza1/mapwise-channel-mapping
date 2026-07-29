@@ -4,7 +4,9 @@
 
 - [x] Validate the platform extraction SQL against one SGL product.
 - [x] Validate the corrected platform extraction SQL against one MULTI_REP parent.
-- [ ] Validate the corrected platform extraction SQL against at least one linked child product.
+- [x] Validate the corrected platform extraction SQL against at least one linked child product. (2026-07-29 — queries 1-4 confirmed against a live child.)
+- [x] Determine which product states are eligible for mapping review. (`Created` = live; see `docs/LISTING_STATE.md`.)
+- [ ] Filter the sync to `product.State = 'Created'` (exclude Final/Suspended/Initial; Incomplete flag-gated).
 - [ ] Replace the Supplier API input contract with a typed platform-listing DTO.
 - [ ] Build a read-only VPN-local sync runner or internal sync service.
 - [ ] Add scoped service authentication for Mapwise ingestion.
@@ -23,6 +25,7 @@
 - [ ] Resolve SGL/MLT parent inheritance and unit structure.
 - [ ] Parse attribute `options` JSON by attribute group.
 - [ ] Classify unresolved attribute codes without dropping them from review.
+- [ ] **Resolve attribute codes that miss `CONCAT(List, ID)` and `attribute_mapping`.** Live listings carry `RMA`/`HAC` codes (5000–6000 range) absent from both reference tables, so their amenities currently resolve blank. Find the correct lookup before amenity mapping can ship. (Found 2026-07-29.)
 
 ## P1 - Workflow
 

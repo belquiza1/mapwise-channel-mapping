@@ -27,7 +27,14 @@
 | Tax number | `product.TaxNumber` |
 | Street | `product.Physicaladdress` |
 | Parent/unit structure | `product.PartofID`, `product.ParentID`, `product.linked_id`, `product.MultiUnit`, `product.ProductGroup` |
+| Lifecycle state | `product.State` (string enum) |
 | Source version | `product.version` |
+
+`product.State` is a string enum: `Created` (live/active — the mapping target),
+`Incomplete` (onboarding drafts), `Suspended` (paused), `Final` (retired/archived),
+`Initial` (abandoned). The sync pulls `State = 'Created'`. See
+[Listing state](LISTING_STATE.md). Note this is unrelated to `product_text.State`
+(numeric `2`/`3`), where `3` = "Final" = finalized text — opposite meaning of the same word.
 
 ## Text
 

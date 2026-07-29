@@ -4,6 +4,14 @@
 -- same product ID in place of @product_id in each query.
 SET @product_id = 0;
 
+-- Listing-state eligibility (verified 2026-07-29): product.State is a string enum.
+-- 'Created' = live/active listings (the sync target). 'Final' = retired/archived,
+-- 'Suspended' = paused, 'Initial' = abandoned, 'Incomplete' = onboarding drafts.
+-- This per-product extract does not restrict by State; the sync runner should pull
+-- State = 'Created' (optionally 'Incomplete' for pre-launch mapping). See
+-- docs/LISTING_STATE.md. NOTE: product.State='Final' (retired) is unrelated to
+-- product_text.State=3 ('Final' = finalized text) -- same word, opposite meaning.
+
 -- 1. Core product and location
 SELECT
     p.ID, p.AltID, p.SupplierID, p.Name, p.DisplayName, p.UseDisplayName,
