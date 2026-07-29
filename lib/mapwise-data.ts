@@ -4,6 +4,10 @@ export type ImportedSample = { name:string; id:string; kind:string; rooms:number
 
 type Bed = { bedType?:string; count?:number };
 type Bedroom = { beds?:Bed[]; type?:string; privateBathroom?:boolean };
+type ParkingPolicy = { parkingAvailable?:boolean; parkingCharge?:string; parkingLocation?:string };
+type InternetPolicy = { internetAvailable?:boolean };
+type PetPolicy = { petsAllowed?:string };
+type PolicyShape = { parkingPolicy?:ParkingPolicy; internetPolicy?:InternetPolicy; petPolicy?:PetPolicy };
 export type ProductData = {
   id:number; altId?:string; supplierId?:number; name:string; displayName?:string;
   bedrooms:number; bathrooms:number; maxGuests:number; maxAdults?:number; maxChildren?:number; maxInfants?:number;
@@ -37,10 +41,10 @@ export function buildImportedSample(data: ProductData): ImportedSample {
   const roomValid = configuredBedrooms === data.bedrooms;
   const bathroomValid = privateBathrooms <= data.bathrooms;
   const propertyType = data.propertyType || "Not provided";
-  const policy = data.policy as Record<string,any> | undefined;
-  const parking = policy?.parkingPolicy as Record<string,any> | undefined;
-  const internet = policy?.internetPolicy as Record<string,any> | undefined;
-  const pets = policy?.petPolicy as Record<string,any> | undefined;
+  const policy = data.policy as PolicyShape | undefined;
+  const parking = policy?.parkingPolicy;
+  const internet = policy?.internetPolicy;
+  const pets = policy?.petPolicy;
   let id = 1000;
   const rows: MappingRow[] = [
     {id:id++,category:"Property",supplier:`${data.displayName || data.name} / ${propertyType}`,channel:"Booking.com",target:"Catalog type mapping required",confidence:60,status:"review",note:`Confirm ${propertyType} against the Booking.com property catalog.`},
