@@ -57,13 +57,15 @@ exists. Resolved questions:
 - **Which parent field is authoritative for `MULTI_REP`?** `ParentID`. Children link to
   the parent via `ParentID`; `PartofID` and `linked_id` were NULL. The parent carries
   zero Room/Bathroom/Bed (Bed is `NULL`, not `0`) but **can** carry a non-zero `Person`.
-- **Are attribute codes always `CONCAT(attribute.List, attribute.ID)`?** **No.** Active
-  listings carry `product_attribute.attribute_id` values (e.g. `RMA`/`HAC` codes in the
-  5000–6000 range) that exist in **neither** `attribute` (via `CONCAT(List, ID)`) **nor**
-  `attribute_mapping`, so their amenities resolve to blank. The `LEFT JOIN` correctly
-  keeps them visible, but amenity mapping is **not yet functional** for these listings —
-  a fuller resolution path is needed (see backlog). `PCT` property-type mapping works
-  (`PCT8` -> "Condominium" via both paths).
+- **Are attribute codes always `CONCAT(attribute.List, attribute.ID)`?** **No — resolve
+  amenities via `attribute_display.AttributeCode`** (direct match, no CONCAT; yields
+  `DisplayName` + `DisplayCategory`). It covers ~99% of amenity rows on live listings,
+  including the newer `RMA`/`HAC` codes (5000–6000 range) that are absent from `attribute`
+  and `attribute_mapping`. Keep `attribute` (CONCAT) as a ~1% fallback and
+  `attribute_mapping` (Type = 2) for PCT type names; LEFT JOIN throughout so the ~0.4%
+  resolved by nothing stay in the review queue. `PCT` type mapping still works (`PCT8` ->
+  "Condominium"). The extract SQL (query 4) was updated to add the `attribute_display`
+  join.
 - **Real data vs prototype fixtures:** `product.State` is a string enum, not numeric;
   `SpaceUnit` uses codes like `ft2`, not `SQ_FT`; a `Created` (live) product can still
   have only Created-state text (`isFinal = false`), which correctly blocks readiness.
@@ -73,8 +75,8 @@ exists. Resolved questions:
 - Does `product.StandardPerson` represent maximum adults or standard/base occupancy?
   (Observed `StandardPerson = 0` while `Person = 4` on a live child — likely "unset".)
 - How are `product_attribute.options` structures versioned by attribute group?
-- What is the correct resolution table/scheme for attribute codes that miss
-  `CONCAT(List, ID)` and `attribute_mapping`?
+- What do `attribute_display`'s `DisplayRootLevel` / `DisplayParentLevel` /
+  `DisplayKeyLevel` flags and `UseOnly` mean for property- vs unit-level mapping?
 
 ## Build and deployment
 

@@ -62,13 +62,21 @@ PCT codes represent property/structure type. Only join `attribute_mapping` for `
 
 ## Policies and amenities
 
-`product_attribute.attribute_id` is expected to resolve through:
+Resolve `product_attribute.attribute_id` **primarily** through `attribute_display`:
 
 ```sql
-product_attribute.attribute_id = CONCAT(attribute.List, attribute.ID)
+product_attribute.attribute_id = attribute_display.AttributeCode   -- direct, no CONCAT
 ```
 
-`attribute.List` is the three-letter group. `product_attribute.options` contains JSON options such as charge, location, or reservation requirements. Keep the join to `attribute` as a `LEFT JOIN`: unresolved codes must remain visible in the mapping-review queue instead of being dropped.
+`attribute_display` yields `DisplayName` and `DisplayCategory` and resolves ~99% of
+amenity rows on live listings — including the newer `RMA`/`HAC` codes (5000–6000 range)
+that are **absent** from `attribute`. (Verified 2026-07-29; the original
+`CONCAT(attribute.List, attribute.ID)` join alone silently drops those newer codes,
+covering only ~91%.) Keep `attribute` via `CONCAT(List, ID)` as a **fallback** for the
+remaining ~1%. `attribute.List` is the three-letter group; `product_attribute.options`
+contains JSON options such as charge, location, or reservation requirements. All joins
+must be `LEFT JOIN`: the ~0.4% of codes in neither table must stay visible in the
+mapping-review queue instead of being dropped.
 
 ## Location
 

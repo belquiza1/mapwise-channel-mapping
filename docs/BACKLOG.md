@@ -25,7 +25,8 @@
 - [ ] Resolve SGL/MLT parent inheritance and unit structure.
 - [ ] Parse attribute `options` JSON by attribute group.
 - [ ] Classify unresolved attribute codes without dropping them from review.
-- [ ] **Resolve attribute codes that miss `CONCAT(List, ID)` and `attribute_mapping`.** Live listings carry `RMA`/`HAC` codes (5000–6000 range) absent from both reference tables, so their amenities currently resolve blank. Find the correct lookup before amenity mapping can ship. (Found 2026-07-29.)
+- [x] **Resolve attribute codes that miss `CONCAT(List, ID)`.** Fixed 2026-07-29: `attribute_display.AttributeCode` is the primary resolver (direct match; `DisplayName` + `DisplayCategory`), covering ~99% of amenity rows on live listings including the newer 5000–6000 codes. Extract SQL query 4 updated; `attribute` kept as ~1% fallback. See `docs/TABLE_MAPPING.md`.
+- [ ] Interpret `attribute_display` `DisplayRootLevel`/`DisplayParentLevel`/`DisplayKeyLevel` + `UseOnly` for property- vs unit-level amenity placement.
 
 ## P1 - Workflow
 

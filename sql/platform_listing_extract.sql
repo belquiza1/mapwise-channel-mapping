@@ -68,12 +68,21 @@ WHERE pb.ProductID = @product_id
 ORDER BY pb.ID, pbb.ID;
 
 -- 4. Property type, amenities, and policies
+-- Primary name/category resolution is attribute_display.AttributeCode, which matches
+-- product_attribute.attribute_id directly (no CONCAT). Verified 2026-07-29: it resolves
+-- ~99% of amenity rows on live listings, including the newer RMA/HAC codes (5000-6000
+-- range) that are ABSENT from `attribute` via CONCAT(List, ID). `attribute` is kept as a
+-- fallback and attribute_mapping (Type = 2) still supplies PCT property-type names. All
+-- joins are LEFT JOINs so any unresolved code stays visible in the review queue.
 SELECT
     pa.attribute_id, pa.Quantity, pa.options,
+    ad.DisplayName AS displayName, ad.DisplayCategory AS displayCategory,
     am.Names AS mappedTypeNames, am.Type AS mappingType,
     a.List AS attributeGroup, a.ID AS attributeItem,
     a.Name AS attributeName, a.Definition
 FROM product_attribute pa
+LEFT JOIN attribute_display ad
+    ON ad.AttributeCode = pa.attribute_id
 LEFT JOIN (
     SELECT
         Code,
