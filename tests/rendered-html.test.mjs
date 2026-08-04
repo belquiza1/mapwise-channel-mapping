@@ -5,15 +5,20 @@ import test from "node:test";
 const read = path => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
 test("protects pages and API routes for BookingPal users", async () => {
-  const [page, properties, decisions] = await Promise.all([
+  const [page, properties, decisions, auth] = await Promise.all([
     read("app/page.tsx"),
     read("app/api/properties/route.ts"),
     read("app/api/decisions/route.ts"),
+    read("app/access-auth.ts"),
   ]);
-  assert.match(page, /requireChatGPTUser/);
+  assert.match(page, /requireUser/);
   assert.match(page, /@bookingpal\.com/);
   assert.match(properties, /@bookingpal\.com/);
   assert.match(decisions, /@bookingpal\.com/);
+  // The employee gate must verify the Cloudflare Access JWT signature, not merely
+  // trust the forwarded identity header, so the gate holds if Access is bypassed.
+  assert.match(auth, /cf-access-jwt-assertion/i);
+  assert.match(auth, /crypto\.subtle\.verify/);
 });
 
 test("keeps the platform source boundary explicit", async () => {

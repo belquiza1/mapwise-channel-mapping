@@ -1,10 +1,10 @@
 ﻿import MapwiseClient from "./mapwise-client";
-import { requireChatGPTUser, chatGPTSignOutPath } from "./chatgpt-auth";
+import { requireUser, signOutPath } from "./access-auth";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const user = await requireChatGPTUser("/");
+  const user = await requireUser();
 
   if (!user.email.toLowerCase().endsWith("@bookingpal.com")) {
     return (
@@ -14,7 +14,7 @@ export default async function Home() {
           <p className="eyebrow">BOOKINGPAL INTERNAL</p>
           <h1>Access restricted</h1>
           <p>Mapwise is available to authenticated BookingPal employees.</p>
-          <a href={chatGPTSignOutPath("/")}>Sign in with a different account</a>
+          <a href={signOutPath()}>Sign in with a different account</a>
         </section>
       </main>
     );

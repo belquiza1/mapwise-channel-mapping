@@ -1,8 +1,8 @@
 ﻿import { env } from "cloudflare:workers";
-import { getChatGPTUser } from "../../chatgpt-auth";
+import { getUser } from "../../access-auth";
 
 export async function POST(request: Request) {
-  const user = await getChatGPTUser();
+  const user = await getUser();
   if (!user || !user.email.toLowerCase().endsWith("@bookingpal.com")) {
     return Response.json({ error:"BookingPal employee access required." }, { status:403 });
   }

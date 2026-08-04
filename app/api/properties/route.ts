@@ -1,10 +1,10 @@
 ﻿import { env } from "cloudflare:workers";
-import { getChatGPTUser } from "../../chatgpt-auth";
+import { getUser } from "../../access-auth";
 import { buildImportedSample, parseProductResponse, ValidationError, type ImportedSample } from "../../../lib/mapwise-data";
 import { buildPlatformSample, parsePlatformListing } from "../../../lib/platform-data";
 
 async function authorizedUser() {
-  const user = await getChatGPTUser();
+  const user = await getUser();
   return user && user.email.toLowerCase().endsWith("@bookingpal.com") ? user : null;
 }
 

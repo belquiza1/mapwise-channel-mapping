@@ -1,5 +1,5 @@
 import { env } from "cloudflare:workers";
-import { getChatGPTUser } from "../../chatgpt-auth";
+import { getUser } from "../../access-auth";
 import { ValidationError } from "../../../lib/mapwise-data";
 import { parsePlatformListing, type PlatformListing } from "../../../lib/platform-data";
 
@@ -30,7 +30,7 @@ async function authorizeSync(request: Request): Promise<{ actor: string } | null
   if (token && env.SYNC_TOKEN && constantTimeEquals(token, env.SYNC_TOKEN)) {
     return { actor: "sync-runner" };
   }
-  const user = await getChatGPTUser();
+  const user = await getUser();
   if (user && user.email.toLowerCase().endsWith("@bookingpal.com")) {
     return { actor: user.email };
   }

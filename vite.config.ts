@@ -14,15 +14,27 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
-  // Dev-only sync token so /api/sync is exercisable locally. Production sets
-  // SYNC_TOKEN as a Worker secret (never commit a real token).
-  vars: { SYNC_TOKEN: process.env.SYNC_TOKEN ?? "dev-sync-token" },
+  vars: {
+    // Dev-only sync token so /api/sync is exercisable locally. In a production build
+    // the default is omitted so the Worker secret set via `wrangler secret put
+    // SYNC_TOKEN` is not clobbered on redeploy. Never commit a real token.
+    ...(process.env.SYNC_TOKEN
+      ? { SYNC_TOKEN: process.env.SYNC_TOKEN }
+      : process.env.NODE_ENV === "production"
+        ? {}
+        : { SYNC_TOKEN: "dev-sync-token" }),
+    // Cloudflare Access config, supplied at build/deploy time from the Access
+    // application (see docs/DEPLOY.md). Empty locally, where auth uses the dev
+    // bypass that Vite compiles out of the production build.
+    ACCESS_TEAM_DOMAIN: process.env.ACCESS_TEAM_DOMAIN ?? "",
+    ACCESS_AUD: process.env.ACCESS_AUD ?? "",
+  },
   d1_databases: d1
     ? [
         {
           binding: d1,
-          database_name: "site-creator-d1",
-          database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
+          database_name: process.env.D1_DATABASE_NAME ?? "site-creator-d1",
+          database_id: process.env.D1_DATABASE_ID ?? SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
         },
       ]
     : [],
