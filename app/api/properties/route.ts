@@ -1,6 +1,7 @@
 ﻿import { env } from "cloudflare:workers";
 import { getChatGPTUser } from "../../chatgpt-auth";
-import { buildImportedSample, parseProductResponse } from "../../../lib/mapwise-data";
+import { buildImportedSample, parseProductResponse, ValidationError, type ImportedSample } from "../../../lib/mapwise-data";
+import { buildPlatformSample, parsePlatformListing } from "../../../lib/platform-data";
 
 async function authorizedUser() {
   const user = await getChatGPTUser();
@@ -10,12 +11,25 @@ async function authorizedUser() {
 export async function GET() {
   const user = await authorizedUser();
   if (!user) return Response.json({ error:"BookingPal employee access required." }, { status:403 });
-  const propertyResult = await env.DB.prepare("SELECT raw_response_json FROM properties ORDER BY updated_at DESC").all<{raw_response_json:string}>();
+  const propertyResult = await env.DB.prepare("SELECT raw_response_json, record_kind, source_version, synced_at FROM properties ORDER BY updated_at DESC").all<{raw_response_json:string;record_kind:string;source_version:string|null;synced_at:string|null}>();
   const decisionResult = await env.DB.prepare("SELECT property_id, check_id, status, confidence FROM mapping_decisions").all<{property_id:string;check_id:string;status:string;confidence:number}>();
-  const properties = propertyResult.results.map(row => {
-    const parsed = parseProductResponse(JSON.parse(row.raw_response_json));
-    return buildImportedSample(parsed.data);
-  });
+  // Parse each stored row defensively by its record_kind: one legacy/corrupt row
+  // must not 500 the entire list. Bad rows are skipped rather than failing.
+  const properties = propertyResult.results.reduce<ImportedSample[]>((acc, row) => {
+    try {
+      const raw = JSON.parse(row.raw_response_json);
+      const sample = row.record_kind === "platform"
+        ? buildPlatformSample(parsePlatformListing(raw))
+        : buildImportedSample(parseProductResponse(raw).data);
+      sample.recordKind = row.record_kind === "platform" ? "platform" : "supplier";
+      if (row.source_version) sample.sourceVersion = row.source_version;
+      if (row.synced_at) sample.syncedAt = row.synced_at;
+      acc.push(sample);
+    } catch {
+      // Skip unparseable row; keep serving the rest.
+    }
+    return acc;
+  }, []);
   return Response.json({ properties, decisions:decisionResult.results });
 }
 
@@ -47,7 +61,11 @@ export async function POST(request: Request) {
     ]);
     return Response.json({ property:buildImportedSample(data) }, { status:201 });
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Unable to import this response.";
-    return Response.json({ error:message }, { status:400 });
+    // Only surface our own validation messages. Anything else (D1/SQL/internal)
+    // is returned as a generic 500 so raw engine detail never reaches the client.
+    if (error instanceof ValidationError) {
+      return Response.json({ error:error.message }, { status:400 });
+    }
+    return Response.json({ error:"Unable to import this response. Please check the payload and try again." }, { status:500 });
   }
 }

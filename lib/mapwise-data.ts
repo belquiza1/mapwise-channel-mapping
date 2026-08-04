@@ -1,6 +1,6 @@
 export type Status = "approved" | "review" | "rejected";
 export type MappingRow = { id:number; category:string; supplier:string; channel:string; target:string; confidence:number; status:Status; note?:string };
-export type ImportedSample = { name:string; id:string; kind:string; rooms:number; beds:number; guests:number; space:string; propertyType:string; rows:MappingRow[] };
+export type ImportedSample = { name:string; id:string; kind:string; rooms:number; beds:number; guests:number; space:string; propertyType:string; rows:MappingRow[]; sourceVersion?:string; syncedAt?:string; recordKind?:"supplier"|"platform" };
 
 type Bed = { bedType?:string; count?:number };
 type Bedroom = { beds?:Bed[]; type?:string; privateBathroom?:boolean };
@@ -17,14 +17,26 @@ export type ProductData = {
   texts?:Record<string,unknown>; space?:number; spaceUnit?:string;
 };
 
+/**
+ * Thrown when a pasted response fails structural validation. These messages are
+ * safe to surface to the operator. Any other error type must NOT be echoed back
+ * to the client (it may carry internal DB/SQL detail).
+ */
+export class ValidationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "ValidationError";
+  }
+}
+
 export function parseProductResponse(value: unknown): { response:Record<string,unknown>; data:ProductData } {
-  if (!value || typeof value !== "object") throw new Error("Response must be a JSON object.");
+  if (!value || typeof value !== "object") throw new ValidationError("Response must be a JSON object.");
   const response = value as Record<string,unknown>;
-  if (response.isError !== false || response.code !== 200) throw new Error("Paste a successful Supplier API response with isError=false and code=200.");
-  if (!response.data || typeof response.data !== "object") throw new Error("The response does not contain a product data object.");
+  if (response.isError !== false || response.code !== 200) throw new ValidationError("Paste a successful Supplier API response with isError=false and code=200.");
+  if (!response.data || typeof response.data !== "object") throw new ValidationError("The response does not contain a product data object.");
   const data = response.data as ProductData;
-  if (!Number.isInteger(data.id) || !data.name || !Number.isFinite(data.bedrooms) || !Number.isFinite(data.maxGuests)) {
-    throw new Error("This is not a Product Detail response. Product id, name, bedrooms, and maxGuests are required.");
+  if (!Number.isInteger(data.id) || !data.name || !Number.isFinite(data.bedrooms) || !Number.isFinite(data.bathrooms) || !Number.isFinite(data.maxGuests)) {
+    throw new ValidationError("This is not a Product Detail response. Product id, name, bedrooms, bathrooms, and maxGuests are required.");
   }
   return { response, data };
 }
