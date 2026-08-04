@@ -15,12 +15,14 @@ const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
   vars: {
-    // Dev-only sync token so /api/sync is exercisable locally. In a production build
-    // the default is omitted so the Worker secret set via `wrangler secret put
-    // SYNC_TOKEN` is not clobbered on redeploy. Never commit a real token.
+    // Dev-only sync token so /api/sync is exercisable locally. A production build is
+    // identified by a real D1_DATABASE_ID being supplied; there the default is omitted
+    // so /api/sync ships with no token until the Worker secret is set via `wrangler
+    // secret put SYNC_TOKEN`, and that secret is not clobbered on redeploy. Never commit
+    // a real token.
     ...(process.env.SYNC_TOKEN
       ? { SYNC_TOKEN: process.env.SYNC_TOKEN }
-      : process.env.NODE_ENV === "production"
+      : process.env.D1_DATABASE_ID
         ? {}
         : { SYNC_TOKEN: "dev-sync-token" }),
     // Cloudflare Access config, supplied at build/deploy time from the Access
