@@ -20,6 +20,13 @@ export const properties = sqliteTable("properties", {
   importedBy: text("imported_by").notNull(),
   createdAt: text("created_at").notNull(),
   updatedAt: text("updated_at").notNull(),
+  // Platform-sync fields (see docs/DEVELOPMENT_HANDOFF.md). record_kind discriminates
+  // the raw_response_json shape: 'supplier' (legacy import) vs 'platform' (sync).
+  recordKind: text("record_kind").notNull().default("supplier"),
+  productState: text("product_state"),
+  structure: text("structure"),
+  sourceVersion: text("source_version"),
+  syncedAt: text("synced_at"),
 });
 
 export const mappingDecisions = sqliteTable("mapping_decisions", {

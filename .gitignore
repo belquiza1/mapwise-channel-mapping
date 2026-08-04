@@ -9,5 +9,7 @@ dist/
 *.tar.gz
 *.log
 coverage/
+*.tsbuildinfo
+listings/
 .DS_Store
 Thumbs.db

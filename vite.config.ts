@@ -14,6 +14,9 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
+  // Dev-only sync token so /api/sync is exercisable locally. Production sets
+  // SYNC_TOKEN as a Worker secret (never commit a real token).
+  vars: { SYNC_TOKEN: process.env.SYNC_TOKEN ?? "dev-sync-token" },
   d1_databases: d1
     ? [
         {
