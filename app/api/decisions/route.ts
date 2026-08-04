@@ -1,9 +1,9 @@
 ﻿import { env } from "cloudflare:workers";
-import { getUser } from "../../access-auth";
+import { getUser, isEmployee } from "../../access-auth";
 
 export async function POST(request: Request) {
   const user = await getUser();
-  if (!user || !user.email.toLowerCase().endsWith("@bookingpal.com")) {
+  if (!user || !isEmployee(user.email)) {
     return Response.json({ error:"BookingPal employee access required." }, { status:403 });
   }
   try {

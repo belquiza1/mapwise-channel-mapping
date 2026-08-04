@@ -1,5 +1,5 @@
 import { env } from "cloudflare:workers";
-import { getUser } from "../../access-auth";
+import { getUser, isEmployee } from "../../access-auth";
 import { ValidationError } from "../../../lib/mapwise-data";
 import { parsePlatformListing, type PlatformListing } from "../../../lib/platform-data";
 
@@ -31,7 +31,7 @@ async function authorizeSync(request: Request): Promise<{ actor: string } | null
     return { actor: "sync-runner" };
   }
   const user = await getUser();
-  if (user && user.email.toLowerCase().endsWith("@bookingpal.com")) {
+  if (user && isEmployee(user.email)) {
     return { actor: user.email };
   }
   return null;

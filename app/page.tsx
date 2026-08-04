@@ -1,12 +1,12 @@
 ﻿import MapwiseClient from "./mapwise-client";
-import { requireUser, signOutPath } from "./access-auth";
+import { requireUser, signOutPath, isEmployee } from "./access-auth";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const user = await requireUser();
 
-  if (!user.email.toLowerCase().endsWith("@bookingpal.com")) {
+  if (!isEmployee(user.email)) {
     return (
       <main className="access-page">
         <section className="access-card">

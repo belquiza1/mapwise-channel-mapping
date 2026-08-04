@@ -12,9 +12,13 @@ test("protects pages and API routes for BookingPal users", async () => {
     read("app/access-auth.ts"),
   ]);
   assert.match(page, /requireUser/);
-  assert.match(page, /@bookingpal\.com/);
-  assert.match(properties, /@bookingpal\.com/);
-  assert.match(decisions, /@bookingpal\.com/);
+  // The employee-domain gate is centralized in access-auth (isEmployee) and covers
+  // both BookingPal domains; every protected surface must route through it.
+  assert.match(auth, /@bookingpal\.com/);
+  assert.match(auth, /@mybookingpal\.com/);
+  assert.match(page, /isEmployee/);
+  assert.match(properties, /isEmployee/);
+  assert.match(decisions, /isEmployee/);
   // The employee gate must verify the Cloudflare Access JWT signature, not merely
   // trust the forwarded identity header, so the gate holds if Access is bypassed.
   assert.match(auth, /cf-access-jwt-assertion/i);

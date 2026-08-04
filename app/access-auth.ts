@@ -20,6 +20,17 @@ export type AppUser = {
   fullName: string | null;
 };
 
+// BookingPal employees sign in under either domain (a legacy Google Workspace split
+// that was never consolidated). The Cloudflare Access policy allows both; the app
+// must match, or one domain's users would clear Access and then be rejected here.
+const EMPLOYEE_DOMAINS = ["@bookingpal.com", "@mybookingpal.com"];
+
+export function isEmployee(email: string | null | undefined): boolean {
+  if (!email) return false;
+  const normalized = email.toLowerCase();
+  return EMPLOYEE_DOMAINS.some((domain) => normalized.endsWith(domain));
+}
+
 const ACCESS_JWT_HEADER = "cf-access-jwt-assertion";
 const ACCESS_LOGOUT_PATH = "/cdn-cgi/access/logout";
 const DEV_USER_EMAIL = "dev@bookingpal.com";

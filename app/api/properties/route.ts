@@ -1,11 +1,11 @@
 ﻿import { env } from "cloudflare:workers";
-import { getUser } from "../../access-auth";
+import { getUser, isEmployee } from "../../access-auth";
 import { buildImportedSample, parseProductResponse, ValidationError, type ImportedSample } from "../../../lib/mapwise-data";
 import { buildPlatformSample, parsePlatformListing } from "../../../lib/platform-data";
 
 async function authorizedUser() {
   const user = await getUser();
-  return user && user.email.toLowerCase().endsWith("@bookingpal.com") ? user : null;
+  return user && isEmployee(user.email) ? user : null;
 }
 
 export async function GET() {
