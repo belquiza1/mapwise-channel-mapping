@@ -55,6 +55,22 @@ test("assembles a Created SGL listing from raw platform rows and validates clean
   assert.equal(blockers.length, 0);
 });
 
+test("resolves English text when the DB stores the language code uppercase ('EN')", () => {
+  // The live platform DB stores product_text.Language as 'EN', not 'en'. A case-sensitive
+  // comparison silently dropped every English row and forced the text-presence flags false.
+  // This fixture mirrors the real casing so that regression cannot return unnoticed.
+  const listing = buildListingFromRows({
+    product: { ID: 42, Name: "Casing Check", MultiUnit: "SGL", ProductGroup: "KEY", State: "Created", version: "v", Room: 1, Bed: 1, Person: 2 },
+    texts: [
+      { Type: "Name", Language: "EN", textState: 3, isFinal: 1 },
+      { Type: "Description", Language: "EN", textState: 2, isFinal: 0 },
+    ],
+    bedrooms: [], beds: [], attributes: [], children: [],
+  });
+  assert.equal(listing.listing.finalEnglishTextPresent, true);
+  assert.equal(listing.listing.createdEnglishTextPresent, true);
+});
+
 test("MULTI_REP parent: zero counts, children discovered, no count blocker", () => {
   const listing = buildListingFromRows({
     product: {
