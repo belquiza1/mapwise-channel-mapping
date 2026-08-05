@@ -31,6 +31,18 @@ import { pathToFileURL } from "url";
 const HOST = "edb3.bookingpal.org";
 const ELIGIBLE_STATE = "Created";
 
+// Channels the pre-push report covers (MVP: Booking.com, Vrbo, Expedia). Airbnb is a
+// fast-follow pending its validation rules. Vrbo has two platform integrations; 525
+// (HAC) is the high-volume one — swap to 1121 (VRB) if the team distributes there.
+const REPORT_CHANNELS = [
+  { id: 276, name: "Booking.com" },
+  { id: 525, name: "Vrbo" },
+  { id: 466, name: "Expedia" },
+];
+// channel_product_map.ChannelState / portal_state enums (see channel_product_map docs).
+const CHANNEL_STATE_LABELS = { 0: "New", 1: "Live", 2: "Suspended", 3: "Removed", 4: "Rejected", 5: "Switchover", 6: "Removed", 7: "Auth failed" };
+const PORTAL_STATE_LABELS = { 0: "New", 1: "Pending", 2: "Approved", 3: "Listed", 4: "Delisted", 5: "Temporarily rejected", 6: "Permanently rejected", 7: "Not distributed" };
+
 // ---- pure assembly (unit-testable without a database) -----------------------
 
 function pick(row, ...names) {
@@ -125,6 +137,23 @@ export function buildListingFromRows(sets) {
     state: pick(c, "State") ?? null,
   }));
 
+  // Per-channel status for the pre-push report. onChannel=false means the listing has
+  // no channel_product_map row for that channel yet — i.e. a candidate to push.
+  const channelById = new Map((sets.channels || []).map(r => [Number(pick(r, "Channel_ID")), r]));
+  const channels = REPORT_CHANNELS.map(ch => {
+    const row = channelById.get(ch.id);
+    if (!row) return { channel: ch.name, onChannel: false, channelState: null, portalState: null, reviewStatus: null, rejectedReason: null };
+    const cs = num(pick(row, "ChannelState"), -1), ps = num(pick(row, "portal_state"), -1);
+    return {
+      channel: ch.name,
+      onChannel: true,
+      channelState: CHANNEL_STATE_LABELS[cs] ?? String(cs),
+      portalState: PORTAL_STATE_LABELS[ps] ?? String(ps),
+      reviewStatus: pick(row, "ReviewStatus") ?? null,
+      rejectedReason: pick(row, "portal_rejected_reason") ?? null,
+    };
+  });
+
   return {
     source: { productId, structure, productGroup, productState, sourceVersion },
     listing: {
@@ -156,6 +185,7 @@ export function buildListingFromRows(sets) {
     attributes: { unresolvedCount },
     location: { city: pick(p, "city") ?? null, region: pick(p, "region") ?? null, country: pick(p, "Country") ?? null, cityAndCoordinatesAgree, postalCodesAgree },
     childUnits,
+    channels,
   };
 }
 
@@ -229,7 +259,15 @@ export async function extractProduct(conn, id) {
     WHERE child.ParentID = ? OR child.PartofID = ? OR child.linked_id = ? ORDER BY child.ID`,
     [id, id, id, id, id, id]);
 
-  return buildListingFromRows({ product, texts, bedrooms, beds, attributes, children });
+  // Current status on the report's channels (Booking.com / Vrbo / Expedia).
+  const channelIds = REPORT_CHANNELS.map(ch => ch.id);
+  const channels = await query(conn, `
+    SELECT Channel_ID, ChannelState, portal_state, ReviewStatus, portal_rejected_reason
+    FROM channel_product_map
+    WHERE ProductID = ? AND Channel_ID IN (${channelIds.map(() => "?").join(",")})
+    ORDER BY Channel_ID, ID`, [id, ...channelIds]);
+
+  return buildListingFromRows({ product, texts, bedrooms, beds, attributes, children, channels });
 }
 
 // Open a read-only connection to the platform DB. Shared by the CLI runner and the
