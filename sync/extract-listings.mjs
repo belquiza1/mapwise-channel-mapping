@@ -188,7 +188,7 @@ async function query(conn, sql, params = []) {
   return rows;
 }
 
-async function extractProduct(conn, id) {
+export async function extractProduct(conn, id) {
   const productRows = await query(conn, `
     SELECT p.*, l.Name AS city, l.GName AS alternateCityName, l.AdminArea_lvl_1 AS region,
            l.Country, l.ZipCode, l.TimeZoneID, l.Latitude AS locationLatitude, l.Longitude AS locationLongitude
@@ -232,15 +232,21 @@ async function extractProduct(conn, id) {
   return buildListingFromRows({ product, texts, bedrooms, beds, attributes, children });
 }
 
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
+// Open a read-only connection to the platform DB. Shared by the CLI runner and the
+// on-demand bridge service so both use one connection/credential path.
+export async function openConnection() {
   const [{ default: dotenv }, { default: mysql }] = await Promise.all([import("dotenv"), import("mysql2/promise")]);
-  dotenv.config();
-
-  const conn = await mysql.createConnection({
+  // quiet: keep dotenv's banner off stdout, which carries the runner's JSON payload.
+  dotenv.config({ quiet: true });
+  return mysql.createConnection({
     host: HOST, user: process.env.MYSQL_USER, password: process.env.MYSQL_PASS,
     database: process.env.MYSQL_DATABASE, connectTimeout: 90000,
   });
+}
+
+async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const conn = await openConnection();
 
   try {
     let ids = args.ids;
