@@ -82,6 +82,19 @@ export type PlatformListing = {
     postalCodesAgree?: boolean;
   };
   childUnits?: PlatformChild[];
+  // Current status on each report channel (Booking.com / Vrbo / Expedia). onChannel=false
+  // means no channel_product_map row yet — a candidate to push. State labels are already
+  // resolved by the runner from the ChannelState / portal_state enums.
+  channels?: PlatformChannelStatus[];
+};
+
+export type PlatformChannelStatus = {
+  channel: string;
+  onChannel: boolean;
+  channelState?: string | null;
+  portalState?: string | null;
+  reviewStatus?: string | null;
+  rejectedReason?: string | null;
 };
 
 /** True for a MULTI_REP parent, where zero room/bath/bed counts are expected. */
@@ -274,6 +287,7 @@ export function buildPlatformSample(listing: PlatformListing): ImportedSample {
     space: l.space && l.spaceUnit ? `${l.space} ${l.spaceUnit}` : "Not provided",
     propertyType,
     rows,
+    channels: listing.channels ?? [],
   };
 }
 

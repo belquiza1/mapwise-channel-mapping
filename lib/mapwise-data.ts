@@ -1,6 +1,7 @@
 export type Status = "approved" | "review" | "rejected";
 export type MappingRow = { id:number; category:string; supplier:string; channel:string; target:string; confidence:number; status:Status; note?:string };
-export type ImportedSample = { name:string; id:string; kind:string; rooms:number; beds:number; guests:number; space:string; propertyType:string; rows:MappingRow[]; sourceVersion?:string; syncedAt?:string; recordKind?:"supplier"|"platform" };
+export type ChannelStatus = { channel:string; onChannel:boolean; channelState?:string|null; portalState?:string|null; reviewStatus?:string|null; rejectedReason?:string|null };
+export type ImportedSample = { name:string; id:string; kind:string; rooms:number; beds:number; guests:number; space:string; propertyType:string; rows:MappingRow[]; sourceVersion?:string; syncedAt?:string; recordKind?:"supplier"|"platform"; channels?:ChannelStatus[] };
 
 type Bed = { bedType?:string; count?:number };
 type Bedroom = { beds?:Bed[]; type?:string; privateBathroom?:boolean };
