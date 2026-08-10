@@ -10,17 +10,29 @@ The script `sync/run-sync.ps1` does the work; Task Scheduler just runs it on a c
 
 ## 1. One-time setup
 
-**a. Add the two Mapwise values to `..\.env`** (the file one level above the repo that
+**a. Create a Cloudflare Access service token** (lets the automated runner past Access —
+the app hostname is Access-protected, and a script can't do the browser login):
+- Zero Trust → **Access → Service Auth → Service Tokens → Create Service Token**. Name it
+  `mapwise-sync`. Copy the **Client ID** and **Client Secret** (shown once).
+- Add a policy so `/api/sync` accepts it: Zero Trust → **Access → Applications** →
+  **Add an application → Self-hosted** → domain `mapwise-channel-mapping.bookingpal.workers.dev`,
+  **path `api/sync`** → policy **Action: Service Auth**, Include → **Service Token** →
+  `mapwise-sync`. (Path-scoped, so it only affects `/api/sync`; the rest of the app stays
+  behind normal login.) This preserves the in-app paste dialog *and* enables the runner.
+
+**b. Add the Mapwise values to `..\.env`** (the file one level above the repo that
 already holds `MYSQL_USER` / `MYSQL_PASS` / `MYSQL_DATABASE`). It is gitignored — never
 commit it:
 
 ```
 MAPWISE_SYNC_URL=https://mapwise-channel-mapping.bookingpal.workers.dev/api/sync
 MAPWISE_SYNC_TOKEN=<the SYNC_TOKEN you set with `wrangler secret put`>
+CF_ACCESS_CLIENT_ID=<service token Client ID>
+CF_ACCESS_CLIENT_SECRET=<service token Client Secret>
 ```
 
-`MAPWISE_SYNC_TOKEN` must be the **same value** as the Worker secret — that's what
-authenticates the runner to `/api/sync`.
+`MAPWISE_SYNC_TOKEN` must match the Worker secret (authenticates to the Worker); the
+`CF_ACCESS_*` pair is the service token (gets the request past Access).
 
 **b. Confirm the script runs by hand first** (VPN connected):
 

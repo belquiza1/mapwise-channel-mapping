@@ -330,9 +330,17 @@ async function main() {
     if (args.post) {
       const url = process.env.MAPWISE_SYNC_URL, token = process.env.MAPWISE_SYNC_TOKEN;
       if (!url || !token) throw new Error("--post requires MAPWISE_SYNC_URL and MAPWISE_SYNC_TOKEN in the environment.");
+      const headers = { "content-type": "application/json", authorization: `Bearer ${token}` };
+      // The Mapwise hostname is behind Cloudflare Access. A machine caller can't do the
+      // browser login, so it presents an Access service token; Access lets it through and
+      // the Worker still validates the Bearer SYNC_TOKEN. Both are required for --post.
+      if (process.env.CF_ACCESS_CLIENT_ID && process.env.CF_ACCESS_CLIENT_SECRET) {
+        headers["CF-Access-Client-Id"] = process.env.CF_ACCESS_CLIENT_ID;
+        headers["CF-Access-Client-Secret"] = process.env.CF_ACCESS_CLIENT_SECRET;
+      }
       const res = await fetch(url, {
         method: "POST",
-        headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
+        headers,
         body: JSON.stringify(payload),
       });
       console.error(`POST ${url} -> ${res.status}`);
