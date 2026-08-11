@@ -156,6 +156,7 @@ export function buildListingFromRows(sets) {
 
   return {
     source: { productId, structure, productGroup, productState, sourceVersion },
+    manager: { name: pick(p, "managerName") ?? null, contact: pick(p, "managerContact") ?? null },
     listing: {
       name: pick(p, "Name") ?? "",
       displayName: pick(p, "DisplayName") ?? null,
@@ -221,8 +222,10 @@ async function query(conn, sql, params = []) {
 export async function extractProduct(conn, id) {
   const productRows = await query(conn, `
     SELECT p.*, l.Name AS city, l.GName AS alternateCityName, l.AdminArea_lvl_1 AS region,
-           l.Country, l.ZipCode, l.TimeZoneID, l.Latitude AS locationLatitude, l.Longitude AS locationLongitude
+           l.Country, l.ZipCode, l.TimeZoneID, l.Latitude AS locationLatitude, l.Longitude AS locationLongitude,
+           pm.Name AS managerName, pm.ExtraName AS managerContact
     FROM product p LEFT JOIN location l ON l.ID = p.LocationID
+      LEFT JOIN party pm ON pm.ID = p.SupplierID
     WHERE p.ID = ?`, [id]);
   if (!productRows.length) return null;
   const product = productRows[0];

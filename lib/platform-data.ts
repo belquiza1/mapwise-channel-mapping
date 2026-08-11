@@ -11,7 +11,7 @@
 // state — the prototype had this inverted).
 
 import { ValidationError, type ImportedSample, type MappingRow, type Status } from "./mapwise-data.ts";
-import { validatePropertyType, propertyTypeOptions, type MappingGate } from "./channel-mapping.ts";
+import { validatePropertyType, propertyTypeOptions, propertyTypeName, type MappingGate } from "./channel-mapping.ts";
 
 export type CheckStatus = "pass" | "review" | "block" | "pending";
 export type ValidationResult = { rule: string; status: CheckStatus; message?: string };
@@ -83,6 +83,8 @@ export type PlatformListing = {
     postalCodesAgree?: boolean;
   };
   childUnits?: PlatformChild[];
+  // Property manager (party.Name via product.SupplierID) — the business account, not guest PII.
+  manager?: { name?: string | null; contact?: string | null };
   // Current status on each report channel (Booking.com / Vrbo / Expedia). onChannel=false
   // means no channel_product_map row yet — a candidate to push. State labels are already
   // resolved by the runner from the ChannelState / portal_state enums.
@@ -240,7 +242,7 @@ const RULE_CATEGORY: Record<string, string> = {
 export function buildPlatformSample(listing: PlatformListing): ImportedSample {
   const l = listing.listing;
   const results = validatePlatformListing(listing);
-  const propertyType = l.propertyTypeName || l.propertyTypeCode || "Not provided";
+  const propertyType = propertyTypeName(l.propertyTypeCode) || l.propertyTypeCode || "Not provided";
   const bookingName = l.useDisplayName && l.displayName ? l.displayName : l.name;
   const channels = ["Booking.com", "Vrbo", "Expedia"];
   let id = 2000;
@@ -267,7 +269,8 @@ export function buildPlatformSample(listing: PlatformListing): ImportedSample {
   }
 
   // One row per validation result (spread across channels round-robin for display).
-  results.forEach((r, i) => {
+  // Skip property-type-resolution — the two-gate property rows above already cover it.
+  results.filter(r => r.rule !== "property-type-resolution").forEach((r, i) => {
     rows.push({
       id: id++,
       category: RULE_CATEGORY[r.rule] ?? "Validation",
@@ -292,6 +295,8 @@ export function buildPlatformSample(listing: PlatformListing): ImportedSample {
     propertyType,
     rows,
     channels: listing.channels ?? [],
+    propertyManager: listing.manager?.name ?? null,
+    managerContact: listing.manager?.contact ?? null,
   };
 }
 

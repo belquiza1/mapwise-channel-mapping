@@ -25,6 +25,15 @@ export type ChannelMappingResult = {
 const PT_INDEX: Record<string, Record<string, string>> = Object.fromEntries(
   (ptMap.propertyTypes as Array<{ code: string; channels: Record<string, string> }>).map(p => [p.code, p.channels]),
 );
+const PT_NAME: Record<string, string> = Object.fromEntries(
+  (ptMap.propertyTypes as Array<{ code: string; name: string }>).map(p => [p.code, p.name]),
+);
+
+// Clean canonical name for a PCT code (e.g. PCT35 -> "Villa"), for display instead of the
+// GROUP_CONCAT of every candidate catalog name.
+export function propertyTypeName(pctCode: string | null | undefined): string | null {
+  return pctCode ? (PT_NAME[pctCode] ?? null) : null;
+}
 
 // Booking.com allowed unit-type names + room names, lowercased, for the Gate-2 check.
 const BOOKING_ALLOWED = new Set<string>();
