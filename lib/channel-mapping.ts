@@ -44,6 +44,13 @@ const GATE2_CATALOG: Record<string, (value: string) => MappingGate> = {
 // a missing PCT entry for Expedia is "pending", not a hard block.
 const PCT_MAPPED_CHANNELS = new Set(["Booking.com", "Vrbo", "AirBnB"]);
 
+// Valid property-type values a rep can override to, per channel (for the picker).
+// Booking.com: its 19 allowed unit types. Others: none held yet (rep confirms the suggestion).
+export function propertyTypeOptions(channel: string): string[] {
+  if (channel === "Booking.com") return (bookingCatalog.unitTypes as Array<{ unitType: string }>).map(t => t.unitType);
+  return [];
+}
+
 export function validatePropertyType(pctCode: string | null | undefined, channels: string[]): ChannelMappingResult[] {
   const perChannel = pctCode ? PT_INDEX[pctCode] : undefined;
   return channels.map(channel => {

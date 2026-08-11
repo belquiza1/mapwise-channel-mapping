@@ -11,6 +11,7 @@
 // state — the prototype had this inverted).
 
 import { ValidationError, type ImportedSample, type MappingRow, type Status } from "./mapwise-data.ts";
+import { validatePropertyType, propertyTypeOptions, type MappingGate } from "./channel-mapping.ts";
 
 export type CheckStatus = "pass" | "review" | "block" | "pending";
 export type ValidationResult = { rule: string; status: CheckStatus; message?: string };
@@ -245,20 +246,23 @@ export function buildPlatformSample(listing: PlatformListing): ImportedSample {
   let id = 2000;
   const rows: MappingRow[] = [];
 
-  // Property-type mapping per channel (PCT resolution feeds channel catalog mapping).
-  const typeResolved = Boolean(l.propertyTypeCode && l.propertyTypeName);
-  for (const channel of channels) {
+  // Property-type mapping per channel, via the two-gate check (BookingPal matrix + channel
+  // catalog). Replaces the old GROUP_CONCAT name blob with a single suggested value.
+  const CHECK_TO_ROW: Record<MappingGate, Status> = { pass: "approved", review: "review", block: "rejected", "n/a": "review" };
+  for (const r of validatePropertyType(l.propertyTypeCode, channels)) {
     rows.push({
       id: id++,
       category: "Property",
       supplier: `${bookingName} / ${l.propertyTypeCode ?? "no PCT"}`,
-      channel,
-      target: typeResolved ? `${propertyType} → catalog mapping` : "Catalog type mapping required",
-      confidence: typeResolved ? 80 : 55,
-      status: typeResolved ? "review" : "rejected",
-      note: typeResolved
-        ? `Resolved via product-type mapping; confirm ${propertyType} against the ${channel} catalog.`
-        : `PCT code did not resolve — ${BLOCK_COPY.toLowerCase()}.`,
+      channel: r.channel,
+      target: r.mappedValue ?? "No mapping",
+      confidence: r.status === "pass" ? 96 : r.status === "block" ? 20 : 60,
+      status: CHECK_TO_ROW[r.status],
+      note: r.detail,
+      suggested: r.mappedValue ?? undefined,
+      options: propertyTypeOptions(r.channel),
+      gate1: r.gate1Mapped,
+      gate2: r.gate2,
     });
   }
 
