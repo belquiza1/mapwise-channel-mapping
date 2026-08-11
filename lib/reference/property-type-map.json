@@ -1,5 +1,5 @@
 {
-  "source": "channelconnector /channel-attributes/mapped-attributes",
+  "source": "channelconnector /channel-attributes/mapped-attributes (name||code)",
   "channels": [
     "Booking.com",
     "Expedia",
@@ -12,45 +12,58 @@
       "name": "Townhome",
       "channels": {
         "Vrbo": "PROPERTY_TYPE_TOWNHOME",
-        "AirBnB": "townhouse"
+        "AirBnB": "townhouse",
+        "Expedia": "TOWNHOUSE"
       }
     },
     {
       "code": "PCT102",
       "name": "Single Room",
       "channels": {
+        "Expedia": "Single Room",
         "AirBnB": "aparthotel"
       }
     },
     {
       "code": "PCT103",
       "name": "Double Room",
-      "channels": {}
+      "channels": {
+        "Expedia": "Double Room"
+      }
     },
     {
       "code": "PCT104",
       "name": "Twin",
-      "channels": {}
+      "channels": {
+        "Expedia": "Twin Room"
+      }
     },
     {
       "code": "PCT105",
       "name": "Twin/Double",
-      "channels": {}
+      "channels": {
+        "Expedia": "Twin Room"
+      }
     },
     {
       "code": "PCT106",
       "name": "Triple Room",
-      "channels": {}
+      "channels": {
+        "Expedia": "Triple Room"
+      }
     },
     {
       "code": "PCT107",
       "name": "Quadruple",
-      "channels": {}
+      "channels": {
+        "Expedia": "Quadruple Room"
+      }
     },
     {
       "code": "PCT108",
       "name": "Family",
       "channels": {
+        "Expedia": "Family Room",
         "Vrbo": "THEMES_FAMILY"
       }
     },
@@ -58,6 +71,7 @@
       "code": "PCT109",
       "name": "Suite",
       "channels": {
+        "Expedia": "Suite",
         "AirBnB": "aparthotel"
       }
     },
@@ -66,6 +80,7 @@
       "name": "Studio",
       "channels": {
         "Vrbo": "PROPERTY_TYPE_STUDIO",
+        "Expedia": "Studio",
         "AirBnB": "apartment"
       }
     },
@@ -74,27 +89,32 @@
       "name": "Bungalow",
       "channels": {
         "AirBnB": "bungalow",
-        "Vrbo": "PROPERTY_TYPE_BUNGALOW"
+        "Vrbo": "PROPERTY_TYPE_BUNGALOW",
+        "Expedia": "Bungalow"
       }
     },
     {
       "code": "PCT112",
       "name": "Private room",
       "channels": {
+        "Expedia": "Single Room",
         "AirBnB": "aparthotel"
       }
     },
     {
       "code": "PCT113",
       "name": "Shared room",
-      "channels": {}
+      "channels": {
+        "Expedia": "Room"
+      }
     },
     {
       "code": "PCT114",
       "name": "Cottage",
       "channels": {
         "AirBnB": "cottage",
-        "Vrbo": "PROPERTY_TYPE_COTTAGE"
+        "Vrbo": "PROPERTY_TYPE_COTTAGE",
+        "Expedia": "COTTAGE"
       }
     },
     {
@@ -102,7 +122,8 @@
       "name": "Apart Hotel",
       "channels": {
         "AirBnB": "aparthotel",
-        "Booking.com": "ApartHotel"
+        "Booking.com": "ApartHotel",
+        "Expedia": "APART_HOTEL"
       }
     },
     {
@@ -131,7 +152,8 @@
       "code": "PCT12",
       "name": "Cruise",
       "channels": {
-        "Booking.com": "Boat"
+        "Booking.com": "Boat",
+        "Expedia": "CRUISE"
       }
     },
     {
@@ -356,7 +378,8 @@
       "channels": {
         "Booking.com": "Guest House",
         "AirBnB": "guesthouse",
-        "Vrbo": "PROPERTY_TYPE_GUESTHOUSE"
+        "Vrbo": "PROPERTY_TYPE_GUESTHOUSE",
+        "Expedia": "GUEST_HOUSE"
       }
     },
     {
@@ -404,7 +427,9 @@
     {
       "code": "PCT18",
       "name": "Holiday resort",
-      "channels": {}
+      "channels": {
+        "Expedia": "HOTEL_RESORT"
+      }
     },
     {
       "code": "PCT19",
@@ -412,7 +437,8 @@
       "channels": {
         "Booking.com": "Hostel",
         "AirBnB": "hostel",
-        "Vrbo": "PROPERTY_TYPE_HOSTEL"
+        "Vrbo": "PROPERTY_TYPE_HOSTEL",
+        "Expedia": "HOSTEL"
       }
     },
     {
@@ -421,14 +447,16 @@
       "channels": {
         "Booking.com": "Hotel",
         "AirBnB": "hotel",
-        "Vrbo": "PROPERTY_TYPE_HOTEL"
+        "Vrbo": "PROPERTY_TYPE_HOTEL",
+        "Expedia": "HOTEL"
       }
     },
     {
       "code": "PCT21",
       "name": "Inn",
       "channels": {
-        "Booking.com": "Inn"
+        "Booking.com": "Inn",
+        "Expedia": "INN"
       }
     },
     {
@@ -437,40 +465,48 @@
       "channels": {
         "Booking.com": "Lodge",
         "AirBnB": "lodge",
-        "Vrbo": "PROPERTY_TYPE_LODGE"
+        "Vrbo": "PROPERTY_TYPE_LODGE",
+        "Expedia": "LODGE"
       }
     },
     {
       "code": "PCT23",
       "name": "Meeting resort",
-      "channels": {}
+      "channels": {
+        "Expedia": "HOTEL_RESORT"
+      }
     },
     {
       "code": "PCT25",
       "name": "Mobile-home",
       "channels": {
         "Booking.com": "Holiday Home",
-        "Vrbo": "PROPERTY_TYPE_MOBILE_HOME"
+        "Vrbo": "PROPERTY_TYPE_MOBILE_HOME",
+        "Expedia": "Mobile Home"
       }
     },
     {
       "code": "PCT27",
       "name": "Motel",
       "channels": {
-        "Booking.com": "Motel"
+        "Booking.com": "Motel",
+        "Expedia": "MOTEL"
       }
     },
     {
       "code": "PCT28",
       "name": "Ranch",
       "channels": {
-        "Booking.com": "Farm stay"
+        "Booking.com": "Farm stay",
+        "Expedia": "RANCH"
       }
     },
     {
       "code": "PCT29",
       "name": "Residential apartment",
-      "channels": {}
+      "channels": {
+        "Expedia": "APARTMENT"
+      }
     },
     {
       "code": "PCT3",
@@ -478,7 +514,8 @@
       "channels": {
         "Booking.com": "Apartment",
         "AirBnB": "apartment",
-        "Vrbo": "PROPERTY_TYPE_APARTMENT"
+        "Vrbo": "PROPERTY_TYPE_APARTMENT",
+        "Expedia": "APARTMENT"
       }
     },
     {
@@ -487,20 +524,24 @@
       "channels": {
         "Booking.com": "Resort",
         "AirBnB": "resort",
-        "Vrbo": "PROPERTY_TYPE_RESORT"
+        "Vrbo": "PROPERTY_TYPE_RESORT",
+        "Expedia": "HOTEL_RESORT"
       }
     },
     {
       "code": "PCT32",
       "name": "Self catering accommodation",
-      "channels": {}
+      "channels": {
+        "Expedia": "CONDO"
+      }
     },
     {
       "code": "PCT33",
       "name": "Tent",
       "channels": {
         "Booking.com": "Tented",
-        "AirBnB": "tent"
+        "AirBnB": "tent",
+        "Expedia": "Tent"
       }
     },
     {
@@ -508,6 +549,8 @@
       "name": "Vacation home",
       "channels": {
         "Booking.com": "Holiday Home",
+        "AirBnB": "house",
+        "Expedia": "PRIVATE_VACATION_HOME",
         "Vrbo": "PROPERTY_TYPE_HOUSE"
       }
     },
@@ -517,13 +560,16 @@
       "channels": {
         "Booking.com": "Villa",
         "AirBnB": "villa",
-        "Vrbo": "PROPERTY_TYPE_VILLA"
+        "Vrbo": "PROPERTY_TYPE_VILLA",
+        "Expedia": "VILLA"
       }
     },
     {
       "code": "PCT36",
       "name": "Wildlife reserve",
-      "channels": {}
+      "channels": {
+        "Expedia": "SAFARI"
+      }
     },
     {
       "code": "PCT37",
@@ -531,7 +577,8 @@
       "channels": {
         "Booking.com": "Holiday Home",
         "AirBnB": "castle",
-        "Vrbo": "PROPERTY_TYPE_CASTLE"
+        "Vrbo": "PROPERTY_TYPE_CASTLE",
+        "Expedia": "CASTLE"
       }
     },
     {
@@ -540,7 +587,8 @@
       "channels": {
         "Booking.com": "Apartment",
         "AirBnB": "bnb",
-        "Vrbo": "PROPERTY_TYPE_BED_AND_BREAKFAST"
+        "Vrbo": "PROPERTY_TYPE_BED_AND_BREAKFAST",
+        "Expedia": "BED_AND_BREAKFAST"
       }
     },
     {
@@ -548,13 +596,15 @@
       "name": "Pension",
       "channels": {
         "Booking.com": "Guest House",
-        "AirBnB": "pension"
+        "AirBnB": "pension",
+        "Expedia": "PENSION"
       }
     },
     {
       "code": "PCT44",
       "name": "Boatel",
       "channels": {
+        "Expedia": "HOUSE_BOAT",
         "AirBnB": "boat_slip"
       }
     },
@@ -569,7 +619,9 @@
     {
       "code": "PCT46",
       "name": "Efficiency/studio",
-      "channels": {}
+      "channels": {
+        "Expedia": "Studio"
+      }
     },
     {
       "code": "PCT5",
@@ -577,7 +629,8 @@
       "channels": {
         "Booking.com": "Holiday Home",
         "AirBnB": "cabin",
-        "Vrbo": "PROPERTY_TYPE_CABIN"
+        "Vrbo": "PROPERTY_TYPE_CABIN",
+        "Expedia": "CABIN"
       }
     },
     {
@@ -662,12 +715,16 @@
     {
       "code": "PCT51",
       "name": "Charm hotel",
-      "channels": {}
+      "channels": {
+        "Expedia": "HOTEL"
+      }
     },
     {
       "code": "PCT52",
       "name": "Manor",
-      "channels": {}
+      "channels": {
+        "Expedia": "CHALET"
+      }
     },
     {
       "code": "PCT6",
@@ -675,7 +732,8 @@
       "channels": {
         "Booking.com": "Camping",
         "AirBnB": "campsite",
-        "Vrbo": "PROPERTY_TYPE_CAMPGROUND"
+        "Vrbo": "PROPERTY_TYPE_CAMPGROUND",
+        "Expedia": "CAMPSITE"
       }
     },
     {
@@ -684,7 +742,8 @@
       "channels": {
         "Booking.com": "Chalet",
         "AirBnB": "chalet",
-        "Vrbo": "PROPERTY_TYPE_CHALET"
+        "Vrbo": "PROPERTY_TYPE_CHALET",
+        "Expedia": "CHALET"
       }
     },
     {
@@ -693,7 +752,8 @@
       "channels": {
         "Booking.com": "Holiday Home",
         "AirBnB": "condominium",
-        "Vrbo": "PROPERTY_TYPE_CONDO"
+        "Vrbo": "PROPERTY_TYPE_CONDO",
+        "Expedia": "CONDO"
       }
     }
   ]

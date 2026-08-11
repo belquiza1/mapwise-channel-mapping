@@ -48,10 +48,16 @@ const GATE2_CATALOG: Record<string, (value: string) => MappingGate> = {
   "Booking.com": v => (BOOKING_ALLOWED.has(v.toLowerCase()) ? "pass" : "block"),
 };
 
-// Channels whose property type comes from the Channel Connector PCT map. Expedia is not
-// here — it maps property type via its own structureType catalog (handled separately), so
-// a missing PCT entry for Expedia is "pending", not a hard block.
-const PCT_MAPPED_CHANNELS = new Set(["Booking.com", "Vrbo", "AirBnB"]);
+// Friendly display for a channel's raw value. Vrbo/HomeAway uses enum codes
+// (PROPERTY_TYPE_VILLA); Airbnb uses lowercase (villa). Booking.com is already clean.
+function prettifyChannelValue(v: string): string {
+  const s = v.replace(/^PROPERTY_TYPE_/, "").replace(/_/g, " ");
+  return s.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+}
+
+// Channels whose property type comes from the Channel Connector PCT map — all of them
+// (Expedia's value lives in channelAttributeCode, now captured in the reference).
+const PCT_MAPPED_CHANNELS = new Set(["Booking.com", "Vrbo", "AirBnB", "Expedia"]);
 
 // Valid property-type values a rep can override to, per channel (for the picker).
 // Booking.com: its 19 allowed unit types. Others: none held yet (rep confirms the suggestion).
@@ -76,10 +82,11 @@ export function validatePropertyType(pctCode: string | null | undefined, channel
     }
     const gate2 = GATE2_CATALOG[channel]?.(mappedValue) ?? "n/a";
     const status: MappingGate = gate2 === "block" ? "block" : gate2 === "n/a" ? "review" : "pass";
+    const display = prettifyChannelValue(mappedValue);
     const detail =
-      gate2 === "block" ? `Mapped to "${mappedValue}", but that is not a current ${channel} unit type — the mapping is stale.`
-      : gate2 === "n/a" ? `Mapped to "${mappedValue}". Confirm against the ${channel} catalog.`
-      : `Mapped to "${mappedValue}" — valid ${channel} unit type.`;
-    return { channel, gate1Mapped: true, mappedValue, gate2, status, detail };
+      gate2 === "block" ? `Mapped to "${display}", but that is not a current ${channel} unit type — the mapping is stale.`
+      : gate2 === "n/a" ? `Mapped to "${display}". Confirm against the ${channel} catalog.`
+      : `Mapped to "${display}" — valid ${channel} unit type.`;
+    return { channel, gate1Mapped: true, mappedValue: display, gate2, status, detail };
   });
 }
