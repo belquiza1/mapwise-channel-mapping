@@ -2,12 +2,16 @@
 import type { PlatformListing } from "../platform-data.ts";
 import type { Rule, RuleResult } from "./types.ts";
 import { propertyTypeRule } from "./property-type.ts";
-import { nameQualityRule, squareFootageRule } from "./content.ts";
+import { nameQualityRule, squareFootageRule, descriptionLengthRule } from "./content.ts";
+import { bedroomsBathroomsRule, occupancyRule } from "./rooms.ts";
 
 export const RULES: Rule[] = [
   propertyTypeRule,
   nameQualityRule,
+  descriptionLengthRule,
   squareFootageRule,
+  bedroomsBathroomsRule,
+  occupancyRule,
   // Batch 2 (photos), Batch 3 (availability, policies, contacts), and room-type/amenity
   // mapping rules are added here as their data lands.
 ];

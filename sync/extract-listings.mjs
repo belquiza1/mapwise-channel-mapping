@@ -97,6 +97,10 @@ export function buildListingFromRows(sets) {
   const englishTexts = texts.filter(t => String(pick(t, "Language") ?? "en").toLowerCase() === "en");
   const finalEnglishTextPresent = englishTexts.some(t => num(pick(t, "State", "textState")) === 3 || num(pick(t, "isFinal")) === 1);
   const createdEnglishTextPresent = englishTexts.some(t => num(pick(t, "State", "textState")) === 2);
+  // Description character count (length only — never the text) for the length rule.
+  const descriptionLength = englishTexts
+    .filter(t => (pick(t, "Type") ?? "") === "Description")
+    .reduce((max, t) => Math.max(max, String(pick(t, "Value") ?? "").length), 0);
 
   // Bedroom configuration.
   const bedrooms = bedroomRows.length;
@@ -181,6 +185,7 @@ export function buildListingFromRows(sets) {
       taxNumberPresent: Boolean(pick(p, "TaxNumber")),
       finalEnglishTextPresent,
       createdEnglishTextPresent,
+      descriptionLength,
     },
     bedroomConfiguration: { bedrooms, bedCount, guestCapacity, matchesProductHeader, rows: bedrooms },
     attributes: { unresolvedCount },

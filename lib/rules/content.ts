@@ -36,6 +36,22 @@ export const nameQualityRule: Rule = {
   },
 };
 
+// Description length: 400–10,000 characters.
+export const descriptionLengthRule: Rule = {
+  id: "description-length",
+  category: "Content",
+  run: (listing): RuleResult[] => {
+    const len = listing.listing.descriptionLength ?? 0;
+    let status: RuleStatus = "pass";
+    let detail = `Description is ${len} characters.`;
+    let fix: string | undefined;
+    if (len === 0) { status = "block"; detail = "No English description — required by all channels."; fix = "Add a 400–10,000 character description."; }
+    else if (len < 400) { status = "block"; detail = `Description is ${len} characters — channels require at least 400.`; fix = "Expand the description to at least 400 characters."; }
+    else if (len > 10000) { status = "review"; detail = `Description is ${len} characters — over the 10,000 maximum.`; fix = "Trim the description to under 10,000 characters."; }
+    return [{ ruleId: "description-length", category: "Content", channel: "all", label: `Description length: ${len}`, target: status === "pass" ? "Accepted" : "Fix description", status, detail, fix }];
+  },
+};
+
 // Square footage: at least 1 (Expedia and others hard-reject without it).
 export const squareFootageRule: Rule = {
   id: "square-footage",
