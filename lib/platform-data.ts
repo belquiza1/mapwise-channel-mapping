@@ -11,7 +11,9 @@
 // state — the prototype had this inverted).
 
 import { ValidationError, type ImportedSample, type MappingRow, type Status } from "./mapwise-data.ts";
-import { validatePropertyType, propertyTypeOptions, propertyTypeName, type MappingGate } from "./channel-mapping.ts";
+import { propertyTypeName } from "./channel-mapping.ts";
+import { runRules } from "./rules/index.ts";
+import type { RuleStatus } from "./rules/types.ts";
 
 export type CheckStatus = "pass" | "review" | "block" | "pending";
 export type ValidationResult = { rule: string; status: CheckStatus; message?: string };
@@ -248,22 +250,24 @@ export function buildPlatformSample(listing: PlatformListing): ImportedSample {
   let id = 2000;
   const rows: MappingRow[] = [];
 
-  // Property-type mapping per channel, via the two-gate check (BookingPal matrix + channel
-  // catalog). Replaces the old GROUP_CONCAT name blob with a single suggested value.
-  const CHECK_TO_ROW: Record<MappingGate, Status> = { pass: "approved", review: "review", block: "rejected", "n/a": "review" };
-  for (const r of validatePropertyType(l.propertyTypeCode, channels)) {
+  // Validation rule registry — property-type mapping (two-gate, per channel) plus the
+  // requirement rules from the Maximum Requirement sheet. Each rule is independent; add
+  // more in lib/rules. Runs alongside the legacy validatePlatformListing checks below
+  // until those migrate into the registry too.
+  const RULE_TO_ROW: Record<RuleStatus, Status> = { pass: "approved", review: "review", block: "rejected", "n/a": "review" };
+  for (const r of runRules(listing, channels)) {
     rows.push({
       id: id++,
-      category: "Property",
-      supplier: `${bookingName} / ${l.propertyTypeCode ?? "no PCT"}`,
-      channel: r.channel,
-      target: r.mappedValue ?? "No mapping",
+      category: r.category,
+      supplier: r.label,
+      channel: r.channel === "all" ? "All channels" : r.channel,
+      target: r.target,
       confidence: r.status === "pass" ? 96 : r.status === "block" ? 20 : 60,
-      status: CHECK_TO_ROW[r.status],
-      note: r.detail,
-      suggested: r.mappedValue ?? undefined,
-      options: propertyTypeOptions(r.channel),
-      gate1: r.gate1Mapped,
+      status: RULE_TO_ROW[r.status],
+      note: r.fix ? `${r.detail} ${r.fix}` : r.detail,
+      suggested: r.suggested,
+      options: r.options,
+      gate1: r.gate1,
       gate2: r.gate2,
     });
   }
