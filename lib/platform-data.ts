@@ -76,6 +76,7 @@ export type PlatformListing = {
     unresolvedCodes?: string[] | string;
     resolved?: Array<{ code: string; displayName?: string | null; category?: string | null }>;
     propertyTypeFanoutCollapsed?: boolean;
+    amenities?: Array<{ code: string; name?: string | null }>;
   };
   location?: {
     city?: string | null;

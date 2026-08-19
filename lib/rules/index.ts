@@ -4,6 +4,7 @@ import type { Rule, RuleResult } from "./types.ts";
 import { propertyTypeRule } from "./property-type.ts";
 import { nameQualityRule, squareFootageRule, descriptionLengthRule } from "./content.ts";
 import { bedroomsBathroomsRule, occupancyRule } from "./rooms.ts";
+import { amenityCountRule, requiredAmenitiesRule, amenityMappingRule } from "./amenities.ts";
 
 export const RULES: Rule[] = [
   propertyTypeRule,
@@ -12,8 +13,10 @@ export const RULES: Rule[] = [
   squareFootageRule,
   bedroomsBathroomsRule,
   occupancyRule,
-  // Batch 2 (photos), Batch 3 (availability, policies, contacts), and room-type/amenity
-  // mapping rules are added here as their data lands.
+  amenityCountRule,
+  requiredAmenitiesRule,
+  amenityMappingRule,
+  // Batch 2 (photos), Batch 3 (availability, policies, contacts) added here as data lands.
 ];
 
 export function runRules(listing: PlatformListing, channels: string[]): RuleResult[] {

@@ -111,8 +111,10 @@ export function buildListingFromRows(sets) {
   const headerGuests = num(pick(p, "Person"));
   const matchesProductHeader = bedrooms > 0 && bedrooms === headerRooms && (bedCount === 0 || bedCount === headerBeds);
 
-  // Attributes: PCT property type resolution + unresolved count.
+  // Attributes: PCT property type resolution, unresolved count, and the amenity list
+  // (codes + names only — no PII) for the count / required-type / mapping rules.
   let propertyTypeCode = null, propertyTypeName = null, unresolvedCount = 0;
+  const amenities = [];
   for (const a of attrRows) {
     const code = pick(a, "attribute_id", "AttributeCode");
     const displayName = pick(a, "displayName", "DisplayName");
@@ -122,6 +124,8 @@ export function buildListingFromRows(sets) {
         propertyTypeCode = code;
         propertyTypeName = mappedTypeNames || pick(a, "attributeName") || null;
       }
+    } else if (typeof code === "string") {
+      amenities.push({ code, name: displayName || pick(a, "attributeName") || null });
     }
     // "unresolved" = neither a display name nor a mapping name resolved the code.
     if (!displayName && !mappedTypeNames && !pick(a, "attributeName")) unresolvedCount++;
@@ -188,7 +192,7 @@ export function buildListingFromRows(sets) {
       descriptionLength,
     },
     bedroomConfiguration: { bedrooms, bedCount, guestCapacity, matchesProductHeader, rows: bedrooms },
-    attributes: { unresolvedCount },
+    attributes: { unresolvedCount, amenities },
     location: { city: pick(p, "city") ?? null, region: pick(p, "region") ?? null, country: pick(p, "Country") ?? null, cityAndCoordinatesAgree, postalCodesAgree },
     childUnits,
     channels,
