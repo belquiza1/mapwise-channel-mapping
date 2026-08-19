@@ -30,6 +30,19 @@ export const bedroomsBathroomsRule: Rule = {
   },
 };
 
+export const beddingRule: Rule = {
+  id: "bedding",
+  category: "Rooms & beds",
+  run: (listing): RuleResult[] => {
+    if (isMultiRepParent(listing)) {
+      return [{ ruleId: "bedding", category: "Rooms & beds", channel: "all", label: "Bedding", target: "Not applicable", status: "pass", detail: "Multi-rep parent — bedding lives on the child units." }];
+    }
+    const beds = listing.bedroomConfiguration?.bedCount ?? 0;
+    const ok = beds > 0;
+    return [{ ruleId: "bedding", category: "Rooms & beds", channel: "all", label: `Bedding: ${beds} bed(s)`, target: ok ? "Accepted" : "Add bedding", status: ok ? "pass" : "block", detail: ok ? `${beds} bed(s) configured.` : "No bedding configured — required by all channels.", fix: ok ? undefined : "Configure the bedding for each room." }];
+  },
+};
+
 export const occupancyRule: Rule = {
   id: "min-occupancy",
   category: "Rooms & beds",

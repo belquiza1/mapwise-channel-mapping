@@ -63,6 +63,9 @@ export type PlatformListing = {
     finalEnglishTextPresent?: boolean;
     createdEnglishTextPresent?: boolean;
     descriptionLength?: number; // English Description length (chars, not the text)
+    shortDescriptionPresent?: boolean;
+    houseRulesPresent?: boolean;
+    addressPresent?: boolean;
   };
   bedroomConfiguration: {
     bedrooms?: number;            // count of product_bedroom rows

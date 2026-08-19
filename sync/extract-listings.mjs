@@ -101,6 +101,8 @@ export function buildListingFromRows(sets) {
   const descriptionLength = englishTexts
     .filter(t => (pick(t, "Type") ?? "") === "Description")
     .reduce((max, t) => Math.max(max, String(pick(t, "Value") ?? "").length), 0);
+  const shortDescriptionPresent = englishTexts.some(t => (pick(t, "Type") ?? "") === "ShortDescription");
+  const houseRulesPresent = englishTexts.some(t => (pick(t, "Type") ?? "") === "HouseRules");
 
   // Bedroom configuration.
   const bedrooms = bedroomRows.length;
@@ -198,6 +200,9 @@ export function buildListingFromRows(sets) {
       finalEnglishTextPresent,
       createdEnglishTextPresent,
       descriptionLength,
+      shortDescriptionPresent,
+      houseRulesPresent,
+      addressPresent: Boolean(pick(p, "Physicaladdress")),
     },
     bedroomConfiguration: { bedrooms, bedCount, guestCapacity, matchesProductHeader, rows: bedrooms },
     attributes: { unresolvedCount, amenities },

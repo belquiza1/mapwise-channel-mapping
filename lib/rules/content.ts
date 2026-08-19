@@ -70,3 +70,25 @@ export const squareFootageRule: Rule = {
     }];
   },
 };
+
+// House rules and short description both required.
+export const houseRulesShortDescRule: Rule = {
+  id: "house-rules-short-desc",
+  category: "Content",
+  run: (listing): RuleResult[] => {
+    const l = listing.listing;
+    const ok = Boolean(l.houseRulesPresent) && Boolean(l.shortDescriptionPresent);
+    const missing = [!l.houseRulesPresent ? "house rules" : null, !l.shortDescriptionPresent ? "short description" : null].filter(Boolean).join(" and ");
+    return [{ ruleId: "house-rules-short-desc", category: "Content", channel: "all", label: "House rules / short description", target: ok ? "Accepted" : "Add content", status: ok ? "pass" : "block", detail: ok ? "House rules and short description present." : `Missing ${missing} — required.`, fix: ok ? undefined : `Add the ${missing}.` }];
+  },
+};
+
+// Address required.
+export const addressRule: Rule = {
+  id: "address",
+  category: "Content",
+  run: (listing): RuleResult[] => {
+    const ok = Boolean(listing.listing.addressPresent);
+    return [{ ruleId: "address", category: "Content", channel: "all", label: "Address", target: ok ? "Present" : "Missing", status: ok ? "pass" : "block", detail: ok ? "Property address present." : "No address — required by all channels.", fix: ok ? undefined : "Add the property address." }];
+  },
+};

@@ -2,8 +2,8 @@
 import type { PlatformListing } from "../platform-data.ts";
 import type { Rule, RuleResult } from "./types.ts";
 import { propertyTypeRule } from "./property-type.ts";
-import { nameQualityRule, squareFootageRule, descriptionLengthRule } from "./content.ts";
-import { bedroomsBathroomsRule, occupancyRule } from "./rooms.ts";
+import { nameQualityRule, squareFootageRule, descriptionLengthRule, houseRulesShortDescRule, addressRule } from "./content.ts";
+import { bedroomsBathroomsRule, occupancyRule, beddingRule } from "./rooms.ts";
 import { amenityCountRule, requiredAmenitiesRule, amenityMappingRule } from "./amenities.ts";
 import { mainPhotoRule, photoCountRule, photoResolutionRule } from "./photos.ts";
 
@@ -14,8 +14,11 @@ export const RULES: Rule[] = [
   photoResolutionRule,
   nameQualityRule,
   descriptionLengthRule,
+  houseRulesShortDescRule,
+  addressRule,
   squareFootageRule,
   bedroomsBathroomsRule,
+  beddingRule,
   occupancyRule,
   amenityCountRule,
   requiredAmenitiesRule,
