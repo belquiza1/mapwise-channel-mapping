@@ -93,6 +93,8 @@ export type PlatformListing = {
   // means no channel_product_map row yet — a candidate to push. State labels are already
   // resolved by the runner from the ChannelState / portal_state enums.
   channels?: PlatformChannelStatus[];
+  // Photo summary (counts only — never the image data).
+  photos?: { count: number; belowResolution: number; hasMainPhoto: boolean; taggedCount: number };
 };
 
 export type PlatformChannelStatus = {

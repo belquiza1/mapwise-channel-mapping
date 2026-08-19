@@ -5,9 +5,13 @@ import { propertyTypeRule } from "./property-type.ts";
 import { nameQualityRule, squareFootageRule, descriptionLengthRule } from "./content.ts";
 import { bedroomsBathroomsRule, occupancyRule } from "./rooms.ts";
 import { amenityCountRule, requiredAmenitiesRule, amenityMappingRule } from "./amenities.ts";
+import { mainPhotoRule, photoCountRule, photoResolutionRule } from "./photos.ts";
 
 export const RULES: Rule[] = [
   propertyTypeRule,
+  mainPhotoRule,
+  photoCountRule,
+  photoResolutionRule,
   nameQualityRule,
   descriptionLengthRule,
   squareFootageRule,
@@ -16,7 +20,7 @@ export const RULES: Rule[] = [
   amenityCountRule,
   requiredAmenitiesRule,
   amenityMappingRule,
-  // Batch 2 (photos), Batch 3 (availability, policies, contacts) added here as data lands.
+  // Batch 3 (availability, policies, contacts) and room-type mapping added here next.
 ];
 
 export function runRules(listing: PlatformListing, channels: string[]): RuleResult[] {

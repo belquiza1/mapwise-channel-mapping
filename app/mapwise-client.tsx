@@ -4,7 +4,7 @@ type Status="approved"|"review"|"rejected";
 type Row={id:number;category:string;supplier:string;channel:string;target:string;confidence:number;status:Status;note?:string;suggested?:string;options?:string[];gate1?:boolean;gate2?:"pass"|"review"|"block"|"n/a"};
 type ChannelStatus={channel:string;onChannel:boolean;channelState?:string|null;portalState?:string|null;reviewStatus?:string|null;rejectedReason?:string|null};
 type Sample={name:string;id:string;kind:string;parent?:string;rooms:number;beds:number;guests:number;space:string;propertyType?:string;rows:Row[];sourceVersion?:string;syncedAt?:string;recordKind?:"supplier"|"platform";channels?:ChannelStatus[];propertyManager?:string|null;managerContact?:string|null};
-const channels=["Booking.com","Vrbo","Expedia"],categories=["Property","Content","Room & beds","Amenities & policies","Validation"];
+const channels=["Booking.com","Vrbo","Expedia"],categories=["Property","Photos","Content","Room & beds","Amenities & policies","Validation"];
 const shared:Row[]=[
 {id:50,category:"Amenities & policies",supplier:"WiFi / all areas / free",channel:"Booking.com",target:"Free WiFi in all areas",confidence:98,status:"approved"},
 {id:51,category:"Amenities & policies",supplier:"Parking / private / on-site / $150/stay",channel:"Vrbo",target:"Paid on-site parking",confidence:82,status:"review",note:"Confirm this charge structure; parking reservation is marked NotPossible."},

@@ -162,6 +162,14 @@ export function buildListingFromRows(sets) {
     };
   });
 
+  const imgRows = sets.images || [];
+  const photos = {
+    count: imgRows.length,
+    belowResolution: imgRows.filter(im => num(pick(im, "width")) < 1024 || num(pick(im, "height")) < 768).length,
+    hasMainPhoto: imgRows.some(im => num(pick(im, "sort")) === 1),
+    taggedCount: imgRows.filter(im => Boolean(pick(im, "tags") && String(pick(im, "tags")).trim())).length,
+  };
+
   return {
     source: { productId, structure, productGroup, productState, sourceVersion },
     manager: { name: pick(p, "managerName") ?? null, contact: pick(p, "managerContact") ?? null },
@@ -196,6 +204,7 @@ export function buildListingFromRows(sets) {
     location: { city: pick(p, "city") ?? null, region: pick(p, "region") ?? null, country: pick(p, "Country") ?? null, cityAndCoordinatesAgree, postalCodesAgree },
     childUnits,
     channels,
+    photos,
   };
 }
 
@@ -279,7 +288,10 @@ export async function extractProduct(conn, id) {
     WHERE ProductID = ? AND Channel_ID IN (${channelIds.map(() => "?").join(",")})
     ORDER BY Channel_ID, ID`, [id, ...channelIds]);
 
-  return buildListingFromRows({ product, texts, bedrooms, beds, attributes, children, channels });
+  // Photos: summary counts only (never the image data). "main photo" = an image at sort 1.
+  const images = await query(conn, `SELECT sort, width, height, tags, state FROM image WHERE product_id = ?`, [id]);
+
+  return buildListingFromRows({ product, texts, bedrooms, beds, attributes, children, channels, images });
 }
 
 // Open a read-only connection to the platform DB. Shared by the CLI runner and the
