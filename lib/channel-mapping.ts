@@ -81,11 +81,13 @@ export function validatePropertyType(pctCode: string | null | undefined, channel
       return { channel, gate1Mapped: false, mappedValue: null, gate2: "n/a", status: "block", detail: `${pctCode} has no BookingPal mapping for ${channel}.` };
     }
     const gate2 = GATE2_CATALOG[channel]?.(mappedValue) ?? "n/a";
-    const status: MappingGate = gate2 === "block" ? "block" : gate2 === "n/a" ? "review" : "pass";
+    // n/a = we hold no separate catalog for this channel, but the value comes from the
+    // Channel Connector (BookingPal's authoritative mapping) — so it passes, no manual step.
+    const status: MappingGate = gate2 === "block" ? "block" : "pass";
     const display = prettifyChannelValue(mappedValue);
     const detail =
       gate2 === "block" ? `Mapped to "${display}", but that is not a current ${channel} unit type — the mapping is stale.`
-      : gate2 === "n/a" ? `Mapped to "${display}". Confirm against the ${channel} catalog.`
+      : gate2 === "n/a" ? `Mapped to "${display}" via the Channel Connector.`
       : `Mapped to "${display}" — valid ${channel} unit type.`;
     return { channel, gate1Mapped: true, mappedValue: display, gate2, status, detail };
   });
