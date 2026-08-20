@@ -66,6 +66,7 @@ export type PlatformListing = {
     shortDescriptionPresent?: boolean;
     houseRulesPresent?: boolean;
     addressPresent?: boolean;
+    policyGroups?: string[]; // Parking / Pet / Internet groups the product has defined
   };
   bedroomConfiguration: {
     bedrooms?: number;            // count of product_bedroom rows

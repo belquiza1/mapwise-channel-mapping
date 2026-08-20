@@ -48,6 +48,26 @@ export const requiredAmenitiesRule: Rule = {
   },
 };
 
+// Policies: parking, pets, and WiFi must be defined (children/smoking live elsewhere).
+export const policiesRule: Rule = {
+  id: "policies",
+  category: "Amenities & policies",
+  run: (listing): RuleResult[] => {
+    const have = new Set(listing.listing.policyGroups ?? []);
+    const required: Array<[string, string]> = [["Parking", "parking"], ["Pet", "pets"], ["Internet", "WiFi"]];
+    const missing = required.filter(([g]) => !have.has(g)).map(([, label]) => label);
+    const ok = missing.length === 0;
+    return [{
+      ruleId: "policies", category: "Amenities & policies", channel: "all",
+      label: "Policies (parking / pets / WiFi)",
+      target: ok ? "Accepted" : "Add policies",
+      status: ok ? "pass" : "review",
+      detail: ok ? "Parking, pet, and WiFi policies present." : `Missing policy: ${missing.join(", ")}.`,
+      fix: ok ? undefined : `Add the ${missing.join(", ")} ${missing.length > 1 ? "policies" : "policy"}.`,
+    }];
+  },
+};
+
 // Mapping (per channel): which of the listing's amenities carry to each channel.
 export const amenityMappingRule: Rule = {
   id: "amenity-mapping",

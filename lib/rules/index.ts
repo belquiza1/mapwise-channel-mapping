@@ -4,7 +4,7 @@ import type { Rule, RuleResult } from "./types.ts";
 import { propertyTypeRule } from "./property-type.ts";
 import { nameQualityRule, squareFootageRule, descriptionLengthRule, houseRulesShortDescRule, addressRule } from "./content.ts";
 import { bedroomsBathroomsRule, occupancyRule, beddingRule } from "./rooms.ts";
-import { amenityCountRule, requiredAmenitiesRule, amenityMappingRule } from "./amenities.ts";
+import { amenityCountRule, requiredAmenitiesRule, amenityMappingRule, policiesRule } from "./amenities.ts";
 import { mainPhotoRule, photoCountRule, photoResolutionRule } from "./photos.ts";
 
 export const RULES: Rule[] = [
@@ -22,6 +22,7 @@ export const RULES: Rule[] = [
   occupancyRule,
   amenityCountRule,
   requiredAmenitiesRule,
+  policiesRule,
   amenityMappingRule,
   // Batch 3 (availability, policies, contacts) and room-type mapping added here next.
 ];

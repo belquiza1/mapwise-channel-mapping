@@ -164,6 +164,7 @@ export function buildListingFromRows(sets) {
     };
   });
 
+  const policyGroups = [...new Set((sets.policies || []).map(r => pick(r, "grp")).filter(Boolean))];
   const imgRows = sets.images || [];
   const photos = {
     count: imgRows.length,
@@ -203,6 +204,7 @@ export function buildListingFromRows(sets) {
       shortDescriptionPresent,
       houseRulesPresent,
       addressPresent: Boolean(pick(p, "Physicaladdress")),
+      policyGroups,
     },
     bedroomConfiguration: { bedrooms, bedCount, guestCapacity, matchesProductHeader, rows: bedrooms },
     attributes: { unresolvedCount, amenities },
@@ -296,7 +298,13 @@ export async function extractProduct(conn, id) {
   // Photos: summary counts only (never the image data). "main photo" = an image at sort 1.
   const images = await query(conn, `SELECT sort, width, height, tags, state FROM image WHERE product_id = ?`, [id]);
 
-  return buildListingFromRows({ product, texts, bedrooms, beds, attributes, children, channels, images });
+  // Policy groups the product has defined (Parking / Pet / Internet).
+  const policies = await query(conn, `
+    SELECT DISTINCT pol.policy_group AS grp
+    FROM product_policy pp JOIN policy pol ON pol.id = pp.policy_id
+    WHERE pp.product_id = ? AND pol.policy_group IS NOT NULL`, [id]);
+
+  return buildListingFromRows({ product, texts, bedrooms, beds, attributes, children, channels, images, policies });
 }
 
 // Open a read-only connection to the platform DB. Shared by the CLI runner and the
