@@ -1,0 +1,4169 @@
+{
+ "source": "channelconnector mapped-attributes (non-PCT)",
+ "channels": [
+  "Booking.com",
+  "Expedia",
+  "Vrbo"
+ ],
+ "codes": {
+  "RMA246": {
+   "name": "High Definition (HD) Flat Panel Television - 32 inches or greater",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST108": {
+   "name": "Mountain climbing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST79": {
+   "name": "Sports Whitewater Rafting",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6014": {
+   "name": "Cars",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6028": {
+   "name": "Entire property on ground floor",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6062": {
+   "name": "Upper Floor Reachable By Stairs Only",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC116": {
+   "name": "Accessible parking",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA22": {
+   "name": "Connecting rooms",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC101": {
+   "name": "Wheelchair access",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6075": {
+   "name": "Private entrance",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6098": {
+   "name": "Wheelchair inaccessible",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST14": {
+   "name": "Dart board",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST9": {
+   "name": "Bowling alley",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST67": {
+   "name": "Miniature golf",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC234": {
+   "name": "Water sports",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST101": {
+   "name": "Windsurfing",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST160": {
+   "name": "Diving",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST86": {
+   "name": "Snorkeling",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST149": {
+   "name": "Canoeing",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST20": {
+   "name": "Fishing",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST60": {
+   "name": "Hiking trail",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC6008": {
+   "name": "Ski rental",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST4": {
+   "name": "Basketball court",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST111": {
+   "name": "Billiards",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST7": {
+   "name": "Boating",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST13": {
+   "name": "Cross country skiing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST25": {
+   "name": "Fly fishing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC236": {
+   "name": "Golf Course (within 2 miles)",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RST35": {
+   "name": "Gym",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST105": {
+   "name": "Hunting",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST137": {
+   "name": "Ice skating",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST63": {
+   "name": "Jet-ski",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST65": {
+   "name": "Kayaking",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST68": {
+   "name": "Mountain biking trail",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST73": {
+   "name": "Parasailing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST112": {
+   "name": "Rock climbing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST80": {
+   "name": "Sailing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST82": {
+   "name": "Scuba diving",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST156": {
+   "name": "Ski in/out facilities",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST87": {
+   "name": "Snow boarding",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST120": {
+   "name": "Snow mobiling",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST92": {
+   "name": "Squash court",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST116": {
+   "name": "Surfing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST117": {
+   "name": "Table tennis",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RST96": {
+   "name": "Tubing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC273": {
+   "name": "Water skiing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC237": {
+   "name": "Horseback riding",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC272": {
+   "name": "Snow skiing",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC233": {
+   "name": "Tennis court",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RST169": {
+   "name": "Bikes Available (Free)",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC6020": {
+   "name": "Boat",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST179": {
+   "name": "Paddle boating",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST180": {
+   "name": "Sledding",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA16": {
+   "name": "Bidet",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA10": {
+   "name": "Bathrobe",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA15": {
+   "name": "Bathtub or Shower",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA11": {
+   "name": "Bathroom amenities",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA193": {
+   "name": "Shared bathroom",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA57": {
+   "name": "Whirpool",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA13": {
+   "name": "Bathtub",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA127": {
+   "name": "Bathtub &whirlpool separate",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA14": {
+   "name": "Bathtub only",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA50": {
+   "name": "Hairdryer",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA138": {
+   "name": "Marble bathroom",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA141": {
+   "name": "Oversized bathtub",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA80": {
+   "name": "Phone in bathroom",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA85": {
+   "name": "Private bathroom",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA271": {
+   "name": "Separate toilet area",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA155": {
+   "name": "Separate tub and shower",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA276": {
+   "name": "Separate tub or shower",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA142": {
+   "name": "Shower",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA97": {
+   "name": "Shower only",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA102": {
+   "name": "Sofa bed",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC228": {
+   "name": "Business center",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC14": {
+   "name": "Business library",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC269": {
+   "name": "Meeting rooms",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC96": {
+   "name": "Dry cleaning",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC168": {
+   "name": "Onsite laundry",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC21": {
+   "name": "Coin operated laundry",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC50": {
+   "name": "Housekeeping - daily",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC81": {
+   "name": "Shoe shine stand",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC44": {
+   "name": "Game room",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC198": {
+   "name": "Non-smoking rooms (generic)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC342": {
+   "name": "Snack bar",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC9": {
+   "name": "BBQ/Picnic area",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC77": {
+   "name": "Room service",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA19": {
+   "name": "Coffee/Tea maker",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC173": {
+   "name": "Breakfast served in restaurant",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA190": {
+   "name": "Meal included - continental breakfast",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6099": {
+   "name": "Breakfast booking possible",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC22": {
+   "name": "Concierge desk",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC1": {
+   "name": "24 Hour Reception Desk",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC36": {
+   "name": "Express check-in",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC37": {
+   "name": "Express check-out",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC62": {
+   "name": "Nightclub",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC16": {
+   "name": "Casino",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC8": {
+   "name": "Baby sitting",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC193": {
+   "name": "Children's play area",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RST127": {
+   "name": "Bird watching",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST133": {
+   "name": "Gambling",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC60": {
+   "name": "Live entertainment",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST177": {
+   "name": "Eco tourism",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA18": {
+   "name": "Cable television",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA78": {
+   "name": "Pay per view movies on TV",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA163": {
+   "name": "DVD player",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA214": {
+   "name": "iPod docking station",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA217": {
+   "name": "Satellite radio",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA218": {
+   "name": "Video on demand",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA251": {
+   "name": "TV",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA259": {
+   "name": "Movies",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA21": {
+   "name": "Computer",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA63": {
+   "name": "Laptop",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5": {
+   "name": "AM/FM radio",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA265": {
+   "name": "Bluray player",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA6040": {
+   "name": "iPad",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA6054": {
+   "name": "Game Console - Xbox 360",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA6055": {
+   "name": "Game Console - PS2",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA6056": {
+   "name": "Game Console - PS3",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA6057": {
+   "name": "Game Console - Nintendo Wii",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA129": {
+   "name": "CD  player",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA158": {
+   "name": "CNN available",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA20": {
+   "name": "Color television",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA38": {
+   "name": "Fax machine",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA139": {
+   "name": "List of movie channels available",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA210": {
+   "name": "Satellite television",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA104": {
+   "name": "Stereo",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA115": {
+   "name": "VCR movies",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA273": {
+   "name": "Widescreen TV",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA254": {
+   "name": "Video game player:",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA117": {
+   "name": "Video games",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC97": {
+   "name": "Valet parking",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC310": {
+   "name": "Hypoallergenic rooms",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC312": {
+   "name": "Smoke-free property",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC33": {
+   "name": "Elevators",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC242": {
+   "name": "Heated guest rooms",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC5": {
+   "name": "Air conditioning",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6021": {
+   "name": "Fire extinguishers",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA6068": {
+   "name": "First aid kit",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6018": {
+   "name": "Electronic key card access",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6067": {
+   "name": "Carbon monoxide detector",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC53": {
+   "name": "Indoor parking",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC197": {
+   "name": "Locker room",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC230": {
+   "name": "Secured parking",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA100": {
+   "name": "Smoke detectors",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC186": {
+   "name": "Street side parking",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC5033": {
+   "name": "Ski Storage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6029": {
+   "name": "Car necessary",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6030": {
+   "name": "Car not necessary",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6031": {
+   "name": "Car recommended",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC65": {
+   "name": "Shopping  ",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC54": {
+   "name": "Water park",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "ACC73": {
+   "name": "Cafebar",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC239": {
+   "name": "Beachfront",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA223": {
+   "name": "Mountain view",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA224": {
+   "name": "Ocean view",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA6012": {
+   "name": "Beach view",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6013": {
+   "name": "Pool view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6027": {
+   "name": "Golf view",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6029": {
+   "name": "Lake view",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA6030": {
+   "name": "City view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6051": {
+   "name": "Garden view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6052": {
+   "name": "River view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "ACC74": {
+   "name": "Bay",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "ACC5": {
+   "name": "Beach",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "RST134": {
+   "name": "Garden",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "ACC25": {
+   "name": "Lake",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "ACC31": {
+   "name": "Mountain",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "ACC33": {
+   "name": "Seaocean",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "HAC238": {
+   "name": "Oceanfront",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "ACC42": {
+   "name": "River",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "ACC45": {
+   "name": "Skilift",
+   "channels": [
+    "Vrbo",
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC334": {
+   "name": "Summer terrace",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "ACC90": {
+   "name": "Botanical garden",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA220": {
+   "name": "Gulf view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "ACC24": {
+   "name": "Hospital",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC28": {
+   "name": "Marina",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "ACC32": {
+   "name": "Museum",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC76": {
+   "name": "Restaurant",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "ACC56": {
+   "name": "Winery",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC57": {
+   "name": "Zoo",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC119": {
+   "name": "Outdoor lanai gazebo covered",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC114": {
+   "name": "Duty Free",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA54": {
+   "name": "Internet access",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA123": {
+   "name": "Wireless internet connection",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST104": {
+   "name": "Hot tub",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC345": {
+   "name": "Fitness center",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC79": {
+   "name": "Sauna",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC348": {
+   "name": "Health and beauty services",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC49": {
+   "name": "Heated pool",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC54": {
+   "name": "Indoor pool",
+   "channels": [
+    "Vrbo",
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC61": {
+   "name": "Massage services",
+   "channels": [
+    "Vrbo",
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA92": {
+   "name": "Safe",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA7": {
+   "name": "Balcony",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA144": {
+   "name": "Soundproofed room",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA9": {
+   "name": "Bath tub with spray jets",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA228": {
+   "name": "Slippers",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA8": {
+   "name": "Barbeque grills",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA47": {
+   "name": "Full kitchen",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA164": {
+   "name": "Mini-refrigerator",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA77": {
+   "name": "Oven",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA105": {
+   "name": "Stove",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA32": {
+   "name": "Dishwasher",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA59": {
+   "name": "Kitchen",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA60": {
+   "name": "Kitchen supplies",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA61": {
+   "name": "Kitchenette",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA98": {
+   "name": "Silverware/utensils",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA81": {
+   "name": "Plates and bowls",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA68": {
+   "name": "Microwave",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA88": {
+   "name": "Refrigerator",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA89": {
+   "name": "Refrigerator with ice maker",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA107": {
+   "name": "Telephone",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA149": {
+   "name": "Washer/dryer",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA162": {
+   "name": "Closets in room",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA262": {
+   "name": "Safe large enough to accommodate a laptop",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA157": {
+   "name": "Ceiling fan",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA41": {
+   "name": "Fireplace",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA99": {
+   "name": "Sitting area",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA28": {
+   "name": "Desk",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA119": {
+   "name": "Wake-up calls",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6039": {
+   "name": "Patio",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA6045": {
+   "name": "Outdoor furniture",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6046": {
+   "name": "Outdoor dinning area",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6064": {
+   "name": "Detached",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6001": {
+   "name": "Towels available",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA6058": {
+   "name": "Linen",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA6059": {
+   "name": "Carpeted floor",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6060": {
+   "name": "Tiled floor",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6061": {
+   "name": "Parquet Floor",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6065": {
+   "name": "Mosquito Net",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA126": {
+   "name": "Air conditioning individually controlled in room",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA230": {
+   "name": "Chair provided with desk",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA25": {
+   "name": "Cordless phone",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA29": {
+   "name": "Desk with lamp",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA256": {
+   "name": "Dining room seats",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA46": {
+   "name": "Free movies/video",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA49": {
+   "name": "Grecian tub",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA64": {
+   "name": "Large desk",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA234": {
+   "name": "Luxury linen type",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA69": {
+   "name": "Minibar",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA258": {
+   "name": "Mobile/cellular phones",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA72": {
+   "name": "Multi-line phone",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA260": {
+   "name": "Multiple closets",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA268": {
+   "name": "Non-allergenic room",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA280": {
+   "name": "Plunge pool",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA91": {
+   "name": "Rollaway bed",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA270": {
+   "name": "Seating area with sofa/chair",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA166": {
+   "name": "Heating",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA94": {
+   "name": "Separate closet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA103": {
+   "name": "Speaker phone",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA108": {
+   "name": "Telephone for hearing impaired",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA194": {
+   "name": "Telephone TDD/Textphone",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA167": {
+   "name": "Toaster",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA147": {
+   "name": "Two-line phone",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA2": {
+   "name": "Air conditioning",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA133": {
+   "name": "Desk with electrical outlet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA56": {
+   "name": "Ironing board",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA245": {
+   "name": "Private pool",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA5020": {
+   "name": "Spa Bath",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA5085": {
+   "name": "Dining Area",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA5126": {
+   "name": "Dining Table",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA5091": {
+   "name": "Towels/Linens At Surcharge",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5086": {
+   "name": "Electric Kettle",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6063": {
+   "name": "Semi-Detached",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6042": {
+   "name": "Living room",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA6091": {
+   "name": "Wood stove",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6092": {
+   "name": "Dining Highchair",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6094": {
+   "name": "Dining room",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA6095": {
+   "name": "Dining spices",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC98": {
+   "name": "Vending machines",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC327": {
+   "name": "Events ticket service",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC91": {
+   "name": "Tour/sightseeing desk",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC26": {
+   "name": "Currency exchange",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC7": {
+   "name": "ATM/Cash machine",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC292": {
+   "name": "Newspaper",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC241": {
+   "name": "Ironing board",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC202": {
+   "name": "Bicycle rentals",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC45": {
+   "name": "Gift/News stand",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC283": {
+   "name": "Luggage service",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC78": {
+   "name": "Safe deposit box",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC149": {
+   "name": "Grocery shopping service available",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC122": {
+   "name": "Shops and commercial services",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RST151": {
+   "name": "Outlet shopping",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST173": {
+   "name": "Historic",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST175": {
+   "name": "Historic",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC15": {
+   "name": "Car rental desk",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC41": {
+   "name": "Free airport shuttle",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC282": {
+   "name": "Airport shuttle service",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA6033": {
+   "name": "Washer",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC71": {
+   "name": "Pool",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC6002": {
+   "name": "Chef Services",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6034": {
+   "name": "Dryer",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC68": {
+   "name": "Parking",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "ACC29": {
+   "name": "Market",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "ACC41": {
+   "name": "Restaurant",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "ACC47": {
+   "name": "General supplies",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC55": {
+   "name": "Jacuzzi",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC66": {
+   "name": "Outdoor pool",
+   "channels": [
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "HAC83": {
+   "name": "Solarium",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC86": {
+   "name": "Steam bath",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA111": {
+   "name": "Trouser/Pant press",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA26": {
+   "name": "Cribs",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA33": {
+   "name": "Double bed",
+   "channels": [
+    "Vrbo",
+    "Booking.com",
+    "Expedia"
+   ]
+  },
+  "RMA58": {
+   "name": "King bed",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA86": {
+   "name": "Queen bed",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA113": {
+   "name": "Twin bed",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA200": {
+   "name": "Futon",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA201": {
+   "name": "Murphy bed",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA203": {
+   "name": "Single bed",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA6032": {
+   "name": "Bunk bed",
+   "channels": [
+    "Booking.com",
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC6027": {
+   "name": "Games",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA6066": {
+   "name": "Cleaning Included",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "RMA6088": {
+   "name": "House cleaning optional",
+   "channels": [
+    "Vrbo",
+    "Expedia"
+   ]
+  },
+  "HAC195": {
+   "name": "Disco",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC159": {
+   "name": "Continental breakfast",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC165": {
+   "name": "Lounges/bars",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC29": {
+   "name": "Door man",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC316": {
+   "name": "Electric car charging stations",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC42": {
+   "name": "Free parking",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC63": {
+   "name": "Off-Site parking",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC64": {
+   "name": "On-Site parking",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC6022": {
+   "name": "Private parking",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC6023": {
+   "name": "Public parking",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC179": {
+   "name": "Wireless internet connection in public areas",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC246": {
+   "name": "Thalassotherapy",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC280": {
+   "name": "Grocery store",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA6070": {
+   "name": "Pets allowed on request",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA279": {
+   "name": "Children's playpen",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA55": {
+   "name": "Iron",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "HAC25": {
+   "name": "Courtyard",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA1": {
+   "name": "Adjoining rooms",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA227": {
+   "name": "Premium movie channels",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA45": {
+   "name": "Free local calls",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA6010": {
+   "name": "Separate entrance",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA135": {
+   "name": "Foam pillows",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA186": {
+   "name": "Hypoallergenic bed",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA231": {
+   "name": "Pillow top mattress",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA269": {
+   "name": "Pillow type",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA6082": {
+   "name": "Room darkening shades",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA140": {
+   "name": "Pets allowed",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "RMA3": {
+   "name": "Alarm clock",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC218": {
+   "name": "Children welcome",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6039": {
+   "name": "Path to entrance lit at night",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5087": {
+   "name": "Executive Lounge Access",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5132": {
+   "name": "Upper floor reachable by lift",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5134": {
+   "name": "Entire unit wheelchair accessible",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5148": {
+   "name": "Adapted bath",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5149": {
+   "name": "Roll in shower",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5150": {
+   "name": "Walk in shower",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5153": {
+   "name": "Bathroom emergency pull cord",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5154": {
+   "name": "Shower chair",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5189": {
+   "name": "Accessible by Lift",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6187": {
+   "name": "Outdoor kayak canoe",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST182": {
+   "name": "Whale watching",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6044": {
+   "name": "Cycling Trips",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RST34": {
+   "name": "Golf",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6106": {
+   "name": "Water Sports: Available for additional fee",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC5036": {
+   "name": "Ski pass vendor",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5032": {
+   "name": "Cycling",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6150": {
+   "name": "Sports deepsea fishing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6152": {
+   "name": "Sports fishing freshwater",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6154": {
+   "name": "Sports golf optional",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6158": {
+   "name": "Sports ski lift privileges optional",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6159": {
+   "name": "Sports spelunking",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6149": {
+   "name": "Amenity toilet",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "RMA5027": {
+   "name": "Free Toiletries",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5118": {
+   "name": "Additional Bathroom",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5176": {
+   "name": "Toothbrush",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6073": {
+   "name": "Laundry Facilities",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6127": {
+   "name": "Housekeeping: Additional Services",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6115": {
+   "name": "Chef Services: Included",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6148": {
+   "name": "Entertainment foosball",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5075": {
+   "name": "Flat-screen TV",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5044": {
+   "name": "Satellite Channels",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5174": {
+   "name": "Game console - PS4",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5178": {
+   "name": "Conditioner",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5083": {
+   "name": "Wake Up Service",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5179": {
+   "name": "Body soap",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST5028": {
+   "name": "Ski-to-door access",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5137": {
+   "name": "Private flat in block of flats",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST5": {
+   "name": "Beach",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "HAC5008": {
+   "name": "Chapel/shrine",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6177": {
+   "name": "Golf",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6178": {
+   "name": "Restaurant",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6179": {
+   "name": "Highway",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6181": {
+   "name": "Bar",
+   "channels": [
+    "Vrbo",
+    "Booking.com"
+   ]
+  },
+  "RMA6017": {
+   "name": "Water view",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6087": {
+   "name": "Riverfront",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6091": {
+   "name": "Seafront",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5108": {
+   "name": "Sea View",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5007": {
+   "name": "Sun terrace",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5006": {
+   "name": "Terrace",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6147": {
+   "name": "Amenities garage",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6170": {
+   "name": "Location type ski in",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6171": {
+   "name": "Location type ski out",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6173": {
+   "name": "Location type town",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6175": {
+   "name": "Outdoor snow sports gear",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6085": {
+   "name": "Pool: Saltwater",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5161": {
+   "name": "Salt-water pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6086": {
+   "name": "Pool: Community Access",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6090": {
+   "name": "Sauna: En-suite",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5157": {
+   "name": "Rooftop pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5123": {
+   "name": "Terrace",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5039": {
+   "name": "Extra long beds (> 2 meter)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5041": {
+   "name": "Dressing room",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5073": {
+   "name": "Interconnecting Room(s) available",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5074": {
+   "name": "Laptop Safe Box",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5115": {
+   "name": "Allergy-Free",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5117": {
+   "name": "Electric blankets",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5138": {
+   "name": "Clothes Rack",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5140": {
+   "name": "Clothes drying rack",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5142": {
+   "name": "Child safety socket covers",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5167": {
+   "name": "Bottle of water",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5169": {
+   "name": "Chocolate/cookies",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5170": {
+   "name": "Trash cans",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5171": {
+   "name": "Wine glasses",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5181": {
+   "name": "Pajamas",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5182": {
+   "name": "Yukata",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5186": {
+   "name": "Feather pillow",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5187": {
+   "name": "Non-feather pillow",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5188": {
+   "name": "Hypoallergenic pillow",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5207": {
+   "name": "Private curtain",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6162": {
+   "name": "Emergency exit route",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6163": {
+   "name": "Medical emergency contact",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC5011": {
+   "name": "Trouser press",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5039": {
+   "name": "Rooms/Facilities for Disabled",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5040": {
+   "name": "Hair dresser-beautician",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5041": {
+   "name": "Family Rooms",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5046": {
+   "name": "Soundproof-rooms",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5047": {
+   "name": "Packed Lunches",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5051": {
+   "name": "Special Diet Menus (on request)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5053": {
+   "name": "Hot Spring Bath",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5054": {
+   "name": "Kids' club",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5057": {
+   "name": "Adult only",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5058": {
+   "name": "Open-air bath",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5062": {
+   "name": "Book/DVD/Music library for children",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5066": {
+   "name": "Children television networks",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5070": {
+   "name": "Wine/Champagne",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5071": {
+   "name": "Bottle of water",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5073": {
+   "name": "Chocolate/Cookies",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5075": {
+   "name": "On-site coffee house",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5076": {
+   "name": "Sun loungers or beach chairs",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6095": {
+   "name": "Steam room",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5082": {
+   "name": "Spa lounge/relaxation area",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5083": {
+   "name": "Foot bath",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6184": {
+   "name": "Fitness Room",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC5087": {
+   "name": "Yoga classes",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5088": {
+   "name": "Fitness classes",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5094": {
+   "name": "Pub crawls",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5096": {
+   "name": "Movie nights",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5105": {
+   "name": "Archery",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5106": {
+   "name": "Aerobics",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5107": {
+   "name": "Bingo",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5110": {
+   "name": "Outdoor Swimming Pool (seasonal)",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC5111": {
+   "name": "Indoor Swimming Pool (all year)",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC5112": {
+   "name": "Indoor Swimming Pool (seasonal)",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC5114": {
+   "name": "Rooftop pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5116": {
+   "name": "Pool with view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5118": {
+   "name": "Plunge pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5120": {
+   "name": "Shallow end pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5121": {
+   "name": "Pool cover",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5122": {
+   "name": "Fence around pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5125": {
+   "name": "Toilet with grab rails",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5126": {
+   "name": "Higher level toilet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5128": {
+   "name": "Bathroom emergency pull cord",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5129": {
+   "name": "Visual aids: Braille",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5130": {
+   "name": "Visual aids: Tactile Signs",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5131": {
+   "name": "Auditory Guidance",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5133": {
+   "name": "Neck massage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5134": {
+   "name": "Foot massage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5135": {
+   "name": "Couples massage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5138": {
+   "name": "Full body massage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5139": {
+   "name": "Facial treatments",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5142": {
+   "name": "Hair treatments",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5144": {
+   "name": "Pedicure",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5145": {
+   "name": "Hair cut",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5148": {
+   "name": "Body Treatments",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5151": {
+   "name": "Light therapy",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5152": {
+   "name": "Shuttle Service (free)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5153": {
+   "name": "Shuttle Service (surcharge)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5154": {
+   "name": "Swimming pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5155": {
+   "name": "No Single-Use Plastics",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6001": {
+   "name": "Dinner",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5006": {
+   "name": "Safe Deposit Box",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5120": {
+   "name": "Coffee Machine",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5160": {
+   "name": "heated pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6159": {
+   "name": "Child bed",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6040": {
+   "name": "Home wide doorway",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC6042": {
+   "name": "Disabled parking spot",
+   "channels": [
+    "Expedia"
+   ]
+  },
+  "HAC6182": {
+   "name": "Sports golf",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6186": {
+   "name": "Mountaineering",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6183": {
+   "name": "Outdoor golf",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6185": {
+   "name": "Chauffeur",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC5067": {
+   "name": "Kid meals",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "KC01": {
+   "name": "doorman",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "RMA6146": {
+   "name": "In-unit Washer",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6154": {
+   "name": "Entertainment Books",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5147": {
+   "name": "Toilet with grab rails",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5151": {
+   "name": "Higher level toilet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5152": {
+   "name": "Low bathroom sink",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6092": {
+   "name": "Ski rental: Available for additional fee",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5031": {
+   "name": "Badminton equipment",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5034": {
+   "name": "Ski school",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5030": {
+   "name": "Tennis equipment",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6151": {
+   "name": "Sports fishing bay",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6153": {
+   "name": "Sports fishing surf",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6155": {
+   "name": "Sports mountaineering",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6156": {
+   "name": "Sports pier fishing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6188": {
+   "name": "Sports rafting",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6150": {
+   "name": "Amenity combo tub shower",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6151": {
+   "name": "Amenity outdoor shower",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5042": {
+   "name": "Guest toilet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5072": {
+   "name": "Additional Toilet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5141": {
+   "name": "Toilet paper",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5180": {
+   "name": "Shower cap",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6121": {
+   "name": "Toddler bed",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6128": {
+   "name": "Housekeeping: Additional services available on request",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5116": {
+   "name": "Cleaning products",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5012": {
+   "name": "Designated smoking area",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5009": {
+   "name": "Shared lounge/TV area",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5143": {
+   "name": "Board games/puzzles",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5144": {
+   "name": "Book/DVD/Music library for children",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6149": {
+   "name": "Entertainment music library",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6165": {
+   "name": "Leisure antiquing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6166": {
+   "name": "Leisure wildlife viewing",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5103": {
+   "name": "Game Console",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5007": {
+   "name": "Pay-per-view Channels",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5172": {
+   "name": "Game console - Xbox One",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5173": {
+   "name": "Game console - Wii U",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5198": {
+   "name": "Smartphone",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5199": {
+   "name": "Streaming service (such as Netflix)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5177": {
+   "name": "Shampoo",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5203": {
+   "name": "Metal keys access",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5013": {
+   "name": "Pet basket",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5014": {
+   "name": "Pet bowls",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "ACC1": {
+   "name": "Airport",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC199": {
+   "name": "Railway",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC203": {
+   "name": "Ferry",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6180": {
+   "name": "Ski",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC123": {
+   "name": "Rural",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "ACC40": {
+   "name": "Resort",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6072": {
+   "name": "Lakefront",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA5081": {
+   "name": "View",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5113": {
+   "name": "Landmark View",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5190": {
+   "name": "Inner courtyard view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5191": {
+   "name": "Quiet street view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5004": {
+   "name": "Outdoor fireplace",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5037": {
+   "name": "Private beach area",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6168": {
+   "name": "Location type golf course front",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6169": {
+   "name": "Location type downtown",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6172": {
+   "name": "Location type village",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6174": {
+   "name": "Outdoor water sports gear",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6176": {
+   "name": "Outdoor veranda",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6067": {
+   "name": "Fitness Center: Access to community facilities",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6084": {
+   "name": "Pool: Infinity Edge",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5158": {
+   "name": "Infinity pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5163": {
+   "name": "Pool towels",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5164": {
+   "name": "Shallow end",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5165": {
+   "name": "Pool cover",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5145": {
+   "name": "Baby safety gates",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA146": {
+   "name": "Tables and chairs",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6102": {
+   "name": "Pocket wifi",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6139": {
+   "name": "Baby Crib",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA6155": {
+   "name": "Entertainment Toys",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6050": {
+   "name": "24/7 Support",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6052": {
+   "name": "Concierge Services",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "RMA6147": {
+   "name": "Self-controlled heating/cooling system",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5002": {
+   "name": "Internet facilities",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5034": {
+   "name": "Washing machine",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5089": {
+   "name": "Kitchenware",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5094": {
+   "name": "Tumble dryer (machine)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5095": {
+   "name": "Wardrobe/Closet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5166": {
+   "name": "Wine/champagne",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5168": {
+   "name": "Fruits",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5184": {
+   "name": "Socket near the bed",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5185": {
+   "name": "Adapter",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5200": {
+   "name": "Lockers",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5205": {
+   "name": "Reading light",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5206": {
+   "name": "Earplugs",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6160": {
+   "name": "Deadbolt lock",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6161": {
+   "name": "Fire emergency contact",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC6164": {
+   "name": "Police emergency contact",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC5001": {
+   "name": "Public transport tickets",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5010": {
+   "name": "Ironing service",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5000": {
+   "name": "Breakfast in the room",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6167": {
+   "name": "Attractions theme parks",
+   "channels": [
+    "Vrbo"
+   ]
+  },
+  "HAC5003": {
+   "name": "Outdoor furniture",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5042": {
+   "name": "Viproom facilities",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5043": {
+   "name": "Bridal Suite",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5044": {
+   "name": "Spa & Wellness Centre",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5045": {
+   "name": "Karaoke",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5048": {
+   "name": "Ticket service",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5049": {
+   "name": "Entertainment Staff",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5050": {
+   "name": "Private Check-in/Check-out",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5052": {
+   "name": "Vending Machine (drinks)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5055": {
+   "name": "Minimarket on site",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5059": {
+   "name": "Public bath",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5060": {
+   "name": "Water slide",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5061": {
+   "name": "Board games/puzzles",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6097": {
+   "name": "Children’s play area: Indoor",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5064": {
+   "name": "Kids' outdoor play equipment",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5065": {
+   "name": "Baby safety gates",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5068": {
+   "name": "Kid-friendly buffet",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5069": {
+   "name": "Pool towels",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5072": {
+   "name": "Fruits",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5074": {
+   "name": "Strollers",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5077": {
+   "name": "Sun umbrellas",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5078": {
+   "name": "Picnic area",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5079": {
+   "name": "Beauty Services",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5080": {
+   "name": "Spa Facilities",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5084": {
+   "name": "Spa/wellness packages",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5085": {
+   "name": "Massage chair",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5089": {
+   "name": "Personal trainer",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5090": {
+   "name": "Fitness/spa locker rooms",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RST129": {
+   "name": "Children's pool",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5092": {
+   "name": "Shuttle Service",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5093": {
+   "name": "Temporary art galleries",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5095": {
+   "name": "Stand-up comedy",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5097": {
+   "name": "Walking tours",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5098": {
+   "name": "Bike tours",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5099": {
+   "name": "Themed dinner nights",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5100": {
+   "name": "Happy hour",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5101": {
+   "name": "Tour or class about local culture",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5102": {
+   "name": "Cooking class",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5103": {
+   "name": "Live music/performance",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5104": {
+   "name": "Live sports events (broadcast)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5108": {
+   "name": "Ski Shuttle",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5109": {
+   "name": "Outdoor Swimming Pool (all year)",
+   "channels": [
+    "Booking.com",
+    "Vrbo"
+   ]
+  },
+  "HAC5113": {
+   "name": "Swimming pool toys",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5119": {
+   "name": "Pool bar",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5123": {
+   "name": "Airport Shuttle (surcharge)",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5124": {
+   "name": "Property is wheel chair accessible",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5127": {
+   "name": "Low bathroom sink",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5132": {
+   "name": "Back massage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5136": {
+   "name": "Head massage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5137": {
+   "name": "Hand massage",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5140": {
+   "name": "Waxing services",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5141": {
+   "name": "Make up services",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5143": {
+   "name": "Manicure",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5146": {
+   "name": "Hair colouring",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5147": {
+   "name": "Hair styling",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5149": {
+   "name": "Body scrub",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5150": {
+   "name": "Body wrap",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC5157": {
+   "name": "Towels Changed Upon Request",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "HAC6000": {
+   "name": "Lunch",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5014": {
+   "name": "Hot Tub",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5092": {
+   "name": "Sauna",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5127": {
+   "name": "Children highchair",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "RMA5159": {
+   "name": "Pool with view",
+   "channels": [
+    "Booking.com"
+   ]
+  },
+  "KC02": {
+   "name": "lock_box",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "KC03": {
+   "name": "smart_lock",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "KC04": {
+   "name": "keypad",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "KC05": {
+   "name": "in_person_meet",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "KC06": {
+   "name": "other",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "KC07": {
+   "name": "front_desk",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "KC08": {
+   "name": "secret_spot",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "KC09": {
+   "name": "instruction_contact_us",
+   "channels": [
+    "Expedia",
+    "Booking.com"
+   ]
+  },
+  "HAC6033": {
+   "name": "EV charger",
+   "channels": [
+    "Expedia",
+    "Vrbo"
+   ]
+  }
+ }
+}
