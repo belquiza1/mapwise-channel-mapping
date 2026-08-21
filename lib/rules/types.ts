@@ -25,6 +25,7 @@ export type RuleResult = {
   options?: string[];       // mapping rules: allowed values to override to
   gate1?: boolean;          // mapping rules: mapped in BookingPal matrix
   gate2?: RuleStatus;       // mapping rules: valid per channel catalog
+  details?: Array<{ name: string; suggestion?: string }>; // expandable breakout (e.g. unmapped amenities)
 };
 
 export type Rule = {

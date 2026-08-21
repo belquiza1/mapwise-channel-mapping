@@ -1,9 +1,32 @@
 // Amenity rules — both requirement (count, required types) and mapping (two-gate coverage).
 import type { Rule, RuleResult } from "./types.ts";
 import amenityMap from "../reference/amenity-map.json" with { type: "json" };
+import amenityVocab from "../reference/channel-amenity-vocab.json" with { type: "json" };
 
 const AMENITY_CODES: Record<string, { name: string; channels: string[] }> =
   (amenityMap as { codes: Record<string, { name: string; channels: string[] }> }).codes;
+const VOCAB = amenityVocab as Record<string, string[]>;
+
+function tokens(s: string): string[] {
+  return s.toLowerCase().split(/[^a-z0-9]+/).filter(t => t.length > 2);
+}
+// Closest amenity the channel accepts. Requires the amenity's key noun (its longest token)
+// to appear in the candidate, then ranks by token overlap, preferring the closest (shortest)
+// term. Conservative — returns nothing rather than a misleading match.
+function suggestAmenity(name: string, channel: string): string | undefined {
+  const want = tokens(name);
+  if (!want.length) return undefined;
+  const key = want.reduce((a, b) => (b.length > a.length ? b : a));
+  let best: string | undefined, bestScore = 0, bestLen = Infinity;
+  for (const term of VOCAB[channel] ?? []) {
+    const tt = tokens(term);
+    const have = new Set(tt);
+    if (!have.has(key)) continue; // the key noun must match
+    const score = want.filter(t => have.has(t)).length / want.length;
+    if (score > bestScore || (score === bestScore && tt.length < bestLen)) { bestScore = score; best = term; bestLen = tt.length; }
+  }
+  return best;
+}
 
 function amenityList(listing: Parameters<Rule["run"]>[0]): Array<{ code: string; name?: string | null }> {
   return listing.attributes.amenities ?? [];
@@ -79,7 +102,10 @@ export const amenityMappingRule: Rule = {
       const known = codes.filter(c => AMENITY_CODES[c]);
       const unmapped = known.filter(c => !AMENITY_CODES[c].channels.includes(channel));
       const ok = unmapped.length === 0;
-      const names = unmapped.slice(0, 4).map(c => AMENITY_CODES[c].name);
+      const details = unmapped.map(c => {
+        const nm = AMENITY_CODES[c].name;
+        return { name: nm, suggestion: suggestAmenity(nm, channel) };
+      });
       return {
         ruleId: "amenity-mapping", category: "Amenities & policies", channel,
         label: `Amenities → ${channel}`,
@@ -87,8 +113,9 @@ export const amenityMappingRule: Rule = {
         status: ok ? "pass" : "review",
         detail: ok
           ? `All ${known.length} recognized amenities map to ${channel}.`
-          : `${unmapped.length} of ${known.length} amenities have no ${channel} mapping${names.length ? `: ${names.join(", ")}${unmapped.length > 4 ? "…" : ""}` : ""}.`,
-        fix: ok ? undefined : `These amenities won't appear on ${channel} — add a mapping or drop them.`,
+          : `${unmapped.length} of ${known.length} amenities won't carry to ${channel}.`,
+        fix: ok ? undefined : `These amenities won't appear on ${channel} — map or drop them (see the list).`,
+        details: ok ? undefined : details,
       };
     });
   },

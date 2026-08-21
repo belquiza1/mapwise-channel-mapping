@@ -277,6 +277,7 @@ export function buildPlatformSample(listing: PlatformListing): ImportedSample {
       options: r.options,
       gate1: r.gate1,
       gate2: r.gate2,
+      details: r.details,
     });
   }
 
